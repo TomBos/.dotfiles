@@ -1,0 +1,12 @@
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+alias lah='ls -lah'
+alias reload='clear && source $BASHRC'
+alias ducks='sudo du -ah --max-depth=1 | sort -hr | head -n 11'
+alias cd..='cd ..' # Gets rid of command not found
+alias edit='nano $BASHRC'
+alias day='date +"%d.%m.%Y"'
+alias now='date +"%T"'
+alias update='sudo apt-get update && sudo apt-get upgrade'
+alias ⸸='shutdown now'
