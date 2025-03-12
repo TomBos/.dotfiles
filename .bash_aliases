@@ -8,5 +8,5 @@ alias cd..='cd ..' # Gets rid of command not found
 alias edit='nano $BASHRC'
 alias day='date +"%d.%m.%Y"'
 alias now='date +"%T"'
-alias update='sudo apt-get update && sudo apt-get upgrade'
+alias apt-update='sudo apt-get update && sudo apt-get upgrade && sudo apt autoremove'
 alias ⸸='shutdown now'
