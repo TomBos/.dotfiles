@@ -66,3 +66,4 @@ export DATABASE="$HOME/Documents/DataBases"
 
 # use NodeJS 22 by default
 nvm use 22 > /dev/null
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
