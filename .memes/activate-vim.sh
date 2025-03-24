@@ -1,1 +1,3 @@
-cat ./activate.txt
+#!/bin/bash
+cat $HOME/.dotfiles/.memes/activate.txt
+
