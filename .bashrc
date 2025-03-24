@@ -2,8 +2,8 @@
 export LANG="en_US.UTF-8"
 export CLICOLOR=1
 
-# Set prompt with colors
-export PS1="\u@\h:\w\$ "
+# Set colorful prompt
+export PS1="\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ "
 
 # Ensure correct PATH
 export PATH="$HOME/bin:/usr/local/bin:/usr/bin:/bin"

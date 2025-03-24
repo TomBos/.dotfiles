@@ -1,6 +1,3 @@
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
 alias lah='ls -lah'
 alias reload='clear && source $BASHRC'
 alias ducks='sudo du -ah --max-depth=1 | sort -hr | head -n 11'
@@ -9,4 +6,4 @@ alias edit='nano $BASHRC'
 alias apt-update='sudo apt-get update && sudo apt-get upgrade && sudo apt autoremove'
 alias ⸸='sudo shutdown now'
 alias reboot='sudo reboot'
-alias vim="$HOME/.memes/activate-vim.sh"
+alias vim='$HOME/.memes/activate-vim.sh'
