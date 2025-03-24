@@ -8,6 +8,16 @@ export PS1="\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ "
 # Ensure correct PATH
 export PATH="$HOME/bin:/usr/local/bin:/usr/bin:/bin"
 
+# Enable color for ls and listing commands
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    alias la='ls -A --color=auto'  # Lists all except . and .. with colors
+    alias ll='ls -l --color=auto'  # Long listing with colors
+    alias l='ls -CF --color=auto'  # Compact listing with colors
+fi
+
+
 # Load custom aliases if available
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
