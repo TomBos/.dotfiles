@@ -1,0 +1,10 @@
+[user]
+    name = Tomáš Bosák
+    email = tombos255@gmail.com
+
+[includeIf "gitdir:/var/www/html/handel/"]
+    path = ~/.config/git/handel.gitconfig
+
+[includeIf "gitdir:/var/www/html/github/"]
+    path = ~/.config/git/github.gitconfig
+
