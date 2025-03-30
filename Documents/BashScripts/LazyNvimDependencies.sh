@@ -2,4 +2,6 @@
 sudo apt update -y && sudo apt install -y \
   luarocks \
   gcc \
-  fd-find
+  fd-find \
+  ripgrep
+
