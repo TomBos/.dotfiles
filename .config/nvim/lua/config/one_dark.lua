@@ -1,3 +1,5 @@
 return {
-  { "navarasu/onedark.nvim" },
+  {
+    "navarasu/onedark.nvim"
+  },
 }

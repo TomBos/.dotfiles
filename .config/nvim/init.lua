@@ -20,4 +20,8 @@ vim.keymap.set("n", "<C-e>", builtin.live_grep, {})
 -- Neotree (File Explorer)
 vim.keymap.set("n", "<C-n>", ":Neotree filesystem reveal<CR>", {})
 
+-- Open NeoTree automatically on startup
+vim.cmd([[autocmd VimEnter * Neotree filesystem reveal]])
+
+
 

@@ -1,9 +1,8 @@
 return {
-  { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
-  { "nvim-lualine/lualine.nvim" },
-  { "nvim-tree/nvim-tree.lua" },
-  { "nvim-telescope/telescope.nvim", tag = "0.1.8", dependencies = { "nvim-lua/plenary.nvim" } },
-  
+
+  -- Telescope
+  require("config.telescope"),
+
   -- NeoTree plugin
   require("config.neo_tree"),
 
@@ -12,5 +11,11 @@ return {
 
   -- One Dark Color theme
   require("config.one_dark"),
+
+  -- Nvim Tree
+  require("config.nvim_tree"),
+
+  -- Tree Sitter
+  require("config.tree_sitter"),
 
 }
