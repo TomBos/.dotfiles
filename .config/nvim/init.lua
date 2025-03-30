@@ -17,3 +17,7 @@ vim.keymap.set("n", "<C-p>", builtin.find_files, {})
 -- Telescope (Live Grep)
 vim.keymap.set("n", "<C-e>", builtin.live_grep, {})
 
+-- Neotree (File Explorer)
+vim.keymap.set("n", "<C-n>", ":Neotree filesystem reveal<CR>", {})
+
+
