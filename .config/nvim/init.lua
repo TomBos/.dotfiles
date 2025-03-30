@@ -11,3 +11,6 @@ require('onedark').load()
 local builtin = require("telescope.builtin")
 vim.keymap.set("n", "<C-p>", builtin.find_files, {})
 
+-- Telescope (Live Grep)
+vim.keymap.set("n", "<C-e>", builtin.live_grep, {})
+
