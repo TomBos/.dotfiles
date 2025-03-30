@@ -27,9 +27,10 @@ MiscNewTabAdjacent=FALSE
 MiscSearchDialogOpacity=100
 MiscShowUnsafePasteDialog=FALSE
 MiscRightClickAction=TERMINAL_RIGHT_CLICK_ACTION_CONTEXT_MENU
-
 ColorPalette=#000000;#E06C75;#98C379;#D19A66;#61AFEF;#C678DD;#56B6C2;#ABB2BF;#5C6370;#E06C75;#98C379;#D19A66;#61AFEF;#C678DD;#56B6C2;#FFFEFE
 ColorCursor=#5C6370
-ColorForeground=#5C6370
+ColorForeground=#ffffffffffff
 ColorBackground=#1E2127
 ColorCursorUseDefault=FALSE
+FontName=JetBrainsMono Nerd Font 12
+
