@@ -23,12 +23,11 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-# CUSTOM COMMANDS
-# ALIAS FILE IS IN ~/.bash_aliases
+# Custom exports
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 export BASHRC="$HOME/.bashrc"
 
-# LOAD NVM (node version manager)
+# Load NVM
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
 # use NodeJS 22 by default

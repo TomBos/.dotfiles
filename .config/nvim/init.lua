@@ -3,6 +3,7 @@ vim.cmd("set tabstop=2")
 vim.cmd("set softtabstop=2")
 vim.cmd("set shiftwidth=2")
 vim.o.termguicolors = true
+vim.o.mouse = ""
 
 -- Nvim package manager
 require("config.lazy")
