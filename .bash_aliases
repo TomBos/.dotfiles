@@ -7,3 +7,5 @@ alias apt-update='sudo apt-get update && sudo apt-get upgrade && sudo apt autore
 alias ⸸='sudo shutdown now'
 alias reboot='sudo reboot'
 alias vim='$HOME/.dotfiles/.memes/activate-vim.sh'
+alias uefi='systemctl reboot --firmware-setup'
+
