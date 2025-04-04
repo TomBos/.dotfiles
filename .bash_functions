@@ -1,5 +1,9 @@
-gitclone() {
-    git clone "$1"
-    cd "$(basename "$1" .git)"
-    ~/.scripts/git-post-clone.sh
+git() {
+    if [ "$1" == "clone" ]; then
+        git clone "$2"
+        cd "$(basename "$2" .git)"
+        ~/.dotfiles/scripts/git-post-clone.sh
+    else
+        command git "$@"
+    fi
 }
