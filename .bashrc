@@ -33,6 +33,12 @@ if [ -f /etc/bash_completion ]; then
 fi
 
 
+# Load custom bash functions
+if [ -f ~/.bash_functions ]; then
+    . ~/.bash_functions
+fi
+
+
 # Custom exports
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 export BASHRC="$HOME/.bashrc"
