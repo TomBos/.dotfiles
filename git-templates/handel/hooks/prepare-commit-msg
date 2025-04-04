@@ -1,0 +1,10 @@
+#!/bin/bash
+# ~/.dotfiles/git-templates/hooks/prepare-commit-msg
+
+BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD)
+PREFIX=$(echo "$BRANCH_NAME" | grep -oE 'ESH-[0-9]+')
+
+# If the branch name matches the pattern, prepend the prefix to the commit message
+if [ -n "$PREFIX" ]; then
+    sed -i "1s/^/$PREFIX /" "$1"
+fi

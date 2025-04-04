@@ -1,3 +1,6 @@
 [user]
 	name = Tomáš Bosák
 	email = tomas.bosak@internet-handel.cz
+[init]
+	templatedir = ~/git-templates/handel
+
