@@ -5,7 +5,7 @@ alias cd..='cd ..' # Gets rid of command not found
 alias edit='nvim $BASHRC'
 alias apt-update='sudo apt-get update && sudo apt-get upgrade && sudo apt autoremove'
 alias ⸸='sudo shutdown now'
-alias reboot='sudo reboot'
+alias reboot='sudo systemctl reboot'
 alias vim='$HOME/.dotfiles/.memes/activate-vim.sh'
 alias uefi='systemctl reboot --firmware-setup'
-
+alias shutdown='sudo systemctl poweroff'
