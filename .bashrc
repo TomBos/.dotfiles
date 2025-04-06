@@ -47,3 +47,5 @@ export BASHRC="$HOME/.bashrc"
 # Load NVM
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
+# Display Neofetch
+neofetch

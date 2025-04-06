@@ -1,4 +1,4 @@
 +---------------------------------+
-| Activate Vim                    |
-| Go to settings to activate Vim. |
+| Activate Nano                   |
+| Go to settings to activate Nano.|
 +---------------------------------+
