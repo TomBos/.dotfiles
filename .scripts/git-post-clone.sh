@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Set the template directory path
 TEMPLATE_DIR=~/git-templates/handel/hooks

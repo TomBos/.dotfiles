@@ -7,3 +7,7 @@ git() {
         command git "$@"
     fi
 }
+
+vim() {
+  command nvim "$@"
+}
