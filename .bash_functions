@@ -11,3 +11,5 @@ git() {
 vim() {
   command nvim "$@"
 }
+  
+
