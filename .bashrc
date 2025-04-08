@@ -38,10 +38,10 @@ if [ -f ~/.bash_functions ]; then
     . ~/.bash_functions
 fi
 
-
-# Custom exports
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-export BASHRC="$HOME/.bashrc"
+# Load Custom exports and paths
+if [ -f ~/.bash_exports ]; then
+    . ~/.bash_exports
+fi
 
 
 # Load NVM

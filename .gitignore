@@ -1,2 +1,11 @@
 # Lazy Nvim LockFiles
 .config/nvim/lazy-lock.json
+
+# Custom sys Migrations lock file
+.scripts/sys-migrations/sync.lock
+
+
+
+
+
+
