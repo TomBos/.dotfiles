@@ -17,7 +17,7 @@ else
 fi
 
 GEM_BIN="$(gem environment | awk '/USER INSTALLATION DIRECTORY/ {print $5}')/bin"
-sed '/<ID:RUBY_PATH>/a export PATH="'"$GEM_BIN"':$PATH"' "$HOME/.bash_exports" > "$HOME/.bash_exports"
+sed '/<ID:RUBY_PATH>/a export PATH="'"$GEM_BIN"':$PATH"' "$HOME/.bash_exports" > tmp && mv tmp "$HOME/.bash_exports"
 
 
 
