@@ -41,7 +41,9 @@ fi
 # Load Custom exports and paths
 if [ -d ~/.exports ]; then
    for file in ~/.exports/*; do
-      source "$file"
+     if [ -f "$file" ]; then
+        source "$file"     
+     fi
    done 
 fi
 
@@ -50,4 +52,4 @@ fi
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
 # Display Neofetch
-# neofetch
+neofetch
