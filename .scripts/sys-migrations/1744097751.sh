@@ -10,7 +10,7 @@ check_for_updates() {
     echo "$UPDATES"
     sudo pacman -Syu --noconfirm
   else
-    echo "Your system is already up-to-date."
+    echo "Your pacman packages are already up-to-date."
   fi
 }
 
@@ -18,18 +18,13 @@ check_for_updates() {
 update_or_install_pkg() {
   for pkg in "$@"; do
     LOCAL_V=$(pacman -Q "$pkg" 2>/dev/null | awk '{print $2}')
-    REMOTE_V=$(pacman -Si "$pkg" 2>/dev/null | awk '/^Version/ {print $3}')
 
-    COLORED_PKG="${RED}$pkg${RESET}"
+    COLORED_PKG="${YELLOW}$pkg${RESET}"
 
     if [ -z "$LOCAL_V" ]; then
       echo -e "$COLORED_PKG: not installed → remote $REMOTE_V"
       echo -e "installing $COLORED_PKG"
       sudo pacman -S --noconfirm --needed "$pkg"
-    elif [ "$LOCAL_V" != "$REMOTE_V" ]; then
-      echo -e "$COLORED_PKG: local $LOCAL_V → remote $REMOTE_V"
-      echo -e "updating $COLORED_PKG"
-      sudo pacman -S --noconfirm "$pkg"
     else
       echo -e "$COLORED_PKG: up-to-date ($LOCAL_V)"
     fi
@@ -42,19 +37,26 @@ check_and_install_gems() {
     REMOTE_V=$(gem list -r -e "$gemfile" | grep -E "^$gemfile " | awk '{print $2}' | tr -d '()')
     LOCAL_V=$(gem list -e "$gemfile" | grep -E "^$gemfile " | awk '{print $2}' | tr -d '()')
 
+    COLORED_GEM="${GREEN}$gemfile${RESET}"
+
     if [ "$REMOTE_V" != "$LOCAL_V" ]; then
-      echo "$gemfile: local $LOCAL_V → remote $REMOTE_V"
-      echo "updating $gemfile"
-      gem install "$gemfile"
+      echo -e "$COLORED_GEM: local $LOCAL_V → remote $REMOTE_V"
+      echo -e "updating $COLORED_GEM"
+      gem install "$COLORED_GEM"
     else
-      echo "$gemfile: up-to-date ($LOCAL_V)"
+      echo -e "$COLORED_GEM: up-to-date ($LOCAL_V)"
     fi
   done
 }
 
+
+# === MAIN SCRIPT ===
 check_for_updates
+
 echo -e "${BRIGHT_YELLOW}===PACMAN===${RESET}"
 update_or_install_pkg filezilla xclip ruby bash-completion
+
+echo -e "${BRIGHT_GREEN}===GEM===${RESET}"
 check_and_install_gems neovim environment
 
 
