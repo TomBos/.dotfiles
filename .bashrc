@@ -4,7 +4,10 @@ export CLICOLOR=1
 
 
 # Set colorful prompt
-export PS1="\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ "
+# Account names → red
+# Hostname → green
+# Directories → blue
+export PS1='\[\033[01;31m\]\u\[\033[00m\]@\[\033[01;32m\]\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 
 
 # Ensure correct PATH
@@ -38,6 +41,7 @@ if [ -f ~/.bash_functions ]; then
     . ~/.bash_functions
 fi
 
+
 # Load Custom exports and paths
 if [ -d ~/.exports ]; then
    for file in ~/.exports/*; do
@@ -48,8 +52,11 @@ if [ -d ~/.exports ]; then
 fi
 
 
-# Load NVM
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-
 # Display Neofetch
-neofetch
+if command -v neofetch &>/dev/null; then
+  neofetch
+else
+  echo -e "Neofetch is not available."
+fi
+
+

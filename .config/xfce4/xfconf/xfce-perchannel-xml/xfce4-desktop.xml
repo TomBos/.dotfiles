@@ -30,6 +30,9 @@
           <property name="image-style" type="int" value="5"/>
           <property name="last-image" type="string" value="/home/tombos/Documents/WallPapers/Astronaut-Red.png"/>
         </property>
+        <property name="image-path" type="string" value="/home/tombos/Downloads/WallPapers/WatchTower.png"/>
+        <property name="image-show" type="bool" value="true"/>
+        <property name="image-style" type="int" value="5"/>
       </property>
       <property name="monitor1" type="empty">
         <property name="brightness" type="empty"/>
@@ -87,7 +90,7 @@
       </property>
       <property name="monitorHDMI-1" type="empty">
         <property name="workspace0" type="empty">
-          <property name="last-image" type="string" value="/home/tombos/Documents/WallPapers/Astronaut-Red.png"/>
+          <property name="last-image" type="string" value="/home/tombos/Downloads/WallPapers/WatchTower.png"/>
           <property name="image-style" type="int" value="5"/>
         </property>
       </property>
