@@ -71,4 +71,10 @@ GEM_BIN="$(gem environment | awk '/USER INSTALLATION DIRECTORY/ {print $5}')/bin
 echo 'export PATH="'"$GEM_BIN"':$PATH"' > "$HOME/.exports/ruby.path"
 
 
-
+# Add Flatpak and discord
+# flatpak install discord
+# TODO: MOVE TO NEW REPO
+# TODO: Create whole new system + add lockfile management
+# TODO: Add nodeJS support ?
+# TODO: Move to bin - map syscomand (sys-pkg-sync ?)
+#
