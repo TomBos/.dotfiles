@@ -8,6 +8,4 @@
 .exports/ruby.path
 
 # Mozilla Profiles (Prevent Tracking)
-.mozilla/firefox/profiles.ini
-
-
+.mozilla/firefox/
