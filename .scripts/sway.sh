@@ -1,0 +1,1 @@
+sway foot wmenu

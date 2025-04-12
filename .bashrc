@@ -55,7 +55,7 @@ fi
 # Display Fast Fetch
 if command -v fastfetch &>/dev/null; then
   # Load Fast Fetch with logo
-  fastfetch my_config
+  fastfetch --my-config
 else
   echo -e "Fastfetch is not available."
 fi
