@@ -6,10 +6,16 @@ git() {
     else
         command git "$@"
     fi
-}
+};
 
 vim() {
-  command nvim "$@"
-}
-  
+    command nvim "$@"
+};
 
+fastfetch() {
+    if [ "$1" == "my_config" ]; then
+        command fastfetch --logo "$FAST_FETCH_LOGO_PATH" --logo-height 20 --logo-width 50 --logo-padding-top 3 --logo-padding-left 3
+    else
+        command fastfetch "$@"
+    fi
+};

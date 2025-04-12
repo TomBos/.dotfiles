@@ -52,11 +52,11 @@ if [ -d ~/.exports ]; then
 fi
 
 
-# Display Neofetch
+# Display Fast Fetch
 if command -v fastfetch &>/dev/null; then
-  fastfetch
+  # Load Fast Fetch with logo
+  fastfetch my_config
 else
   echo -e "Fastfetch is not available."
 fi
-
 
