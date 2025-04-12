@@ -53,10 +53,10 @@ fi
 
 
 # Display Neofetch
-if command -v neofetch &>/dev/null; then
-  neofetch
+if command -v fastfetch &>/dev/null; then
+  fastfetch
 else
-  echo -e "Neofetch is not available."
+  echo -e "Fastfetch is not available."
 fi
 
 
