@@ -6,3 +6,4 @@ jdk-openjdk
 maven
 fastfetch
 imagemagick
+udisks2 gvfs

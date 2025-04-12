@@ -4,101 +4,97 @@
     "separator": ": "
   },
   "modules": [
-    "title",
     {
       "type": "custom",
-      "format": "================="
+      "format": "\u001b[96m┌──────────────────────Software──────────────────────┐"
     },
     {
       "type": "os",
-      "key": "󰣇 OS"
-    },
-    {
-      "type": "host",
-      "key": "Motherboard"
+      "key": "│ 󰣇 OS"
     },
     {
       "type": "kernel",
-      "key": " Kernel"
-    },
-    {
-      "type": "uptime",
-      "key": "󱫠 Uptime"
-    },
-    {
-      "type": "packages",
-      "key": " Packages"
+      "key": "│ ├ Kernel"
     },
     {
       "type": "shell",
-      "key": " Shell"
+      "key": "│ └ Shell"
+    },
+    {
+      "type": "terminal",
+      "key": "│  ├ Terminal"
+    },
+    {
+      "type": "terminalfont",
+      "key": "│  └ Terminal Font"
+    },
+    {
+      "type": "de",
+      "key": "│  DE"
+    },
+    {
+      "type": "wm",
+      "key": "│ └ WM"
+    },
+    {
+      "type": "theme",
+      "key": "│  Theme"
+    },
+    {
+      "type": "icons",
+      "key": "│ ├ Icons"
+    },
+    {
+      "type": "font",
+      "key": "│ ├ Font"
+    },
+    {
+      "type": "cursor",
+      "key": "│ └󰇀 Cursor"
+    },
+    {
+      "type": "packages",
+      "key": "│ 󰏖 Packages"
+    },
+    {
+      "type": "custom",
+      "format": "\u001b[96m└────────────────────────────────────────────────────┘"
+    },
+    {
+      "type": "custom",
+      "format": "\u001b[96m┌──────────────────────Hardware──────────────────────┐"
+    },    
+    {
+      "type": "host",
+      "key": "│ 󱤓 Motherboard"
+    },
+    {
+      "type": "cpu",
+      "key": "│ ├ CPU"
+    },
+    {
+      "type": "gpu",
+      "key": "│ ├󰾲 GPU"
+    },
+    {
+      "type": "disk",
+      "key": "│ ├ Disk"
+    },
+    {
+      "type": "swap",
+      "key": "│ ├󰯍 Swap"
+    },
+    {
+      "type": "memory",
+      "key": "│ └ Memory"
     },
     {
       "type": "display",
-      "key": "Display"
+      "key": "│  Display"
     },
     {
-      "type": "de"
+      "type": "custom",
+      "format": "\u001b[96m└────────────────────────────────────────────────────┘"
     },
-    {
-      "type": "wm"
-    },
-    {
-      "type": "wmtheme"
-    },
-    {
-      "type": "theme"
-    },
-    {
-      "type": "icons"
-    },
-    {
-      "type": "font"
-    },
-    {
-      "type": "cursor"
-    },
-    {
-      "type": "terminal"
-    },
-    {
-      "type": "terminalfont"
-    },
-    {
-      "type": "cpu"
-    },
-    {
-      "type": "gpu"
-    },
-    {
-      "type": "memory"
-    },
-    {
-      "type": "swap"
-    },
-    {
-      "type": "disk"
-    },
-    {
-      "type": "localip"
-    },
-    {
-      "type": "battery"
-    },
-    {
-      "type": "poweradapter"
-    },
-    {
-      "type": "locale"
-    },
-    {
-      "type": "bios"
-    },
-    {
-      "type": "break"
-    },
-    {
-      "type": "colors"
-    }
   ]
 }
