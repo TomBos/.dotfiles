@@ -1,1 +1,1 @@
-sway foot wmenu
+sway wmenu
