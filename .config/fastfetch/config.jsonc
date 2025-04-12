@@ -29,28 +29,8 @@
       "key": "│  └ Terminal Font"
     },
     {
-      "type": "de",
-      "key": "│  DE"
-    },
-    {
       "type": "wm",
-      "key": "│ └ WM"
-    },
-    {
-      "type": "theme",
-      "key": "│  Theme"
-    },
-    {
-      "type": "icons",
-      "key": "│ ├ Icons"
-    },
-    {
-      "type": "font",
-      "key": "│ ├ Font"
-    },
-    {
-      "type": "cursor",
-      "key": "│ └󰇀 Cursor"
+      "key": "│  WM"
     },
     {
       "type": "packages",
@@ -96,5 +76,27 @@
       "type": "custom",
       "format": "\u001b[96m└────────────────────────────────────────────────────┘"
     },
+    {
+      "type": "custom",
+      "format": "\u001b[96m┌──────────────────────Misc──────────────────────────┐"
+    },
+    {
+      "type": "uptime",
+      "key": "│  󱫠 Uptime"
+    },
+    {
+        "type": "command",
+        "key": "│   OS Age",
+        "text": "AGE_DIFF=$(($EPOCHSECONDS - $(stat -c %W /)));DAYS=$((AGE_DIFF / 86400));HOURS=$(((AGE_DIFF % 86400) / 3600)); echo $DAYS days and $HOURS hours"
+    },
+    {
+      "type": "colors",
+      "key": "│  󰌁 Colors",
+      "symbol": "circle"
+    },
+    {
+      "type": "custom",
+      "format": "\u001b[96m└────────────────────────────────────────────────────┘"
+    }
   ]
 }

@@ -1,4 +1,21 @@
-{
-  "type": "uptime",
-  "key": "│ ├󱫠 Uptime"
-},
+    {
+      "type": "de",
+      "key": "│  DE"
+    },
+        {
+      "type": "theme",
+      "key": "│  Theme"
+    },
+    {
+      "type": "icons",
+      "key": "│  Icons"
+    },
+    {
+      "type": "font",
+      "key": "│  Font"
+    },
+    {
+      "type": "cursor",
+      "key": "│ 󰇀 Cursor"
+    },
+
