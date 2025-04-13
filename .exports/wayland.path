@@ -1,0 +1,4 @@
+export WAYLAND_DISPLAY=wayland-1
+export QT_QPA_PLATFORM=wayland
+export XDG_SESSION_CLASS=user
+export SDL_VIDEODRIVER=wayland

@@ -2,10 +2,12 @@
 export LANG="en_US.UTF-8"
 export CLICOLOR=1
 
+
 # Start sway on TTY1
 if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" = 1 ];then
   exec sway
 fi
+
 
 # Set colorful prompt
 # Account names → red
