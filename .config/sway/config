@@ -212,6 +212,7 @@ bindsym $mod+r mode "resize"
 #
 # Read `man 5 sway-bar` for more information about this section.
 bar {
+    # Load waybar instead of sway
     swaybar_command waybar
 }
 
@@ -219,5 +220,7 @@ bar {
 exec swaymsg "workspace 1; exec kitty"
 exec swaymsg "workspace 2; exec firefox"
 
+# Custom font
+font pango:Poppins 12
 
 include /etc/sway/config.d/*
