@@ -81,13 +81,13 @@
       "format": "\u001b[96m┌──────────────────────Misc──────────────────────────┐"
     },
     {
-      "type": "uptime",
-      "key": "│  󱫠 Uptime"
-    },
-    {
         "type": "command",
         "key": "│   OS Age",
         "text": "AGE_DIFF=$(($EPOCHSECONDS - $(stat -c %W /)));DAYS=$((AGE_DIFF / 86400));HOURS=$(((AGE_DIFF % 86400) / 3600)); echo $DAYS days and $HOURS hours"
+    },
+    {
+      "type": "uptime",
+      "key": "│  󱫠 Uptime"
     },
     {
       "type": "colors",
