@@ -1,2 +1,4 @@
 .memes
 .mozilla/firefox/profiles.ini
+.gitignore
+.git
