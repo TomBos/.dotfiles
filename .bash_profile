@@ -1,1 +1,3 @@
-# Carry no extra payload
+if [ -f ~/.profile ]; then
+    . ~/.profile
+fi
