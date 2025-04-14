@@ -4,7 +4,7 @@ alias shutdown='sudo systemctl poweroff'                          # Gracefully s
 alias uefi='systemctl reboot --firmware-setup'                    # Boot into UEFI 
 
 # === Helpfull Shortcuts ===
-alias lah='ls -lah'                                               # Ls shortcut
+alias ll='ls -lah'                                                # Ls shortcut
 alias reload='clear && source $BASHRC'                            # Reload bashconfig 
 alias ducks='sudo du -ah --max-depth=1 | sort -hr | head -n 11'   # List biggest files in current dir
 alias cd..='cd ..'                                                # Gets rid of command not found

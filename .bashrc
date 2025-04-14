@@ -3,7 +3,7 @@ export LANG="en_US.UTF-8"
 export CLICOLOR=1
 
 
-# Start sway on TTY1
+# Start i3
 if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" = 1 ];then
   startx
 fi
