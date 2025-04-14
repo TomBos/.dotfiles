@@ -1,4 +1,4 @@
 # Load bashrc
 if [ -f ~/.bashrc ]; then
-  . /.bashrc
+  . ~/.bashrc
 fi

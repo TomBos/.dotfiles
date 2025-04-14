@@ -18,4 +18,7 @@
       "type": "cursor",
       "key": "│ 󰇀 Cursor"
     },
-
+    {
+      "type": "terminalfont",
+      "key": "│  └ Terminal Font"
+    },
