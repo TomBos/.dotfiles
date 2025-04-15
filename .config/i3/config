@@ -116,14 +116,14 @@ bindsym $mod+a focus parent
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1: "
 set $ws2 "2: "
-set $ws3 "3"
-set $ws4 "4"
-set $ws5 "5"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
-set $ws10 "10"
+set $ws3 "3:III"
+set $ws4 "4:IV"
+set $ws5 "5:V"
+set $ws6 "6:VI"
+set $ws7 "7:VII"
+set $ws8 "8:VIII"
+set $ws9 "9:IX"
+set $ws10 "10:X"
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -188,12 +188,13 @@ bindsym $mod+r mode "resize"
 bar {
         position top
         status_command i3status
+        strip_workspace_numbers yes
 }
 
 # Start Firefox and Kitty on startup
 assign [class="Kitty"] → 1
 assign [class="Firefox"] → 2
 
-exec --no-startup-id i3-msg "workspace 1; exec kitty"
-exec --no-startup-id i3-msg "workspace 2; exec firefox"
+exec --no-startup-id i3-msg "workspace $ws1; exec kitty"
+exec --no-startup-id i3-msg "workspace $ws2; exec firefox"
 
