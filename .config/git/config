@@ -2,6 +2,9 @@
     name = Tomáš Bosák
     email = tombos255@gmail.com
 
+[core]
+	editor = nvim
+
 [includeIf "gitdir:/var/www/html/handel/"]
     path = ~/.config/git/handel.gitconfig
 
