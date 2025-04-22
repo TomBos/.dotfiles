@@ -12,4 +12,8 @@ alias vim='nvim'                                                  # Redirect vim
 
 # === Uncategorized ===
 alias nano='$HOME/.dotfiles/.memes/activate-nano.sh'              # Display prank message
+alias icat='kitten icat'                                          # Preview Files inside Terminal
 
+
+# === App Startups on I3 ===
+alias phpstorm='nohup phpstorm > /dev/null 2>&1 &'                # Start PHPSTORM in background without any output
