@@ -12,8 +12,9 @@ alias vim='nvim'                                                  # Redirect vim
 
 # === Uncategorized ===
 alias nano='$HOME/.dotfiles/.memes/activate-nano.sh'              # Display prank message
-alias icat='kitten icat'                                          # Preview Files inside Terminal
+alias icat='kitten icat'                                          # Preview images inside terminal
 
 
-# === App Startups on I3 ===
-alias phpstorm='nohup phpstorm > /dev/null 2>&1 &'                # Start PHPSTORM in background without any output
+# === Disowned App Start From Terminal ===
+alias phpstorm='nohup phpstorm > /dev/null 2>&1 &'                # Start PHPStorm in background without any output
+alias phpstorm='nohup filezilla > /dev/null 2>&1 &'               # Start FileZilla in background without any output
