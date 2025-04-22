@@ -17,4 +17,4 @@ alias icat='kitten icat'                                          # Preview imag
 
 # === Disowned App Start From Terminal ===
 alias phpstorm='nohup phpstorm > /dev/null 2>&1 &'                # Start PHPStorm in background without any output
-alias phpstorm='nohup filezilla > /dev/null 2>&1 &'               # Start FileZilla in background without any output
+alias filezilla='nohup filezilla > /dev/null 2>&1 &'              # Start FileZilla in background without any output
