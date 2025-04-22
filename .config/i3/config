@@ -183,6 +183,11 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+
+# Switch keyboard layout between Czech and English
+setxkbmap -layout us,cz -option 'grp:win_space_toggle'
+
+
 # Screenshot features
 bindsym Print exec --no-startup-id maim -s | xclip -selection clipboard -t image/png
 
@@ -193,6 +198,10 @@ bar {
         status_command i3status
         strip_workspace_numbers yes
 }
+
+
+# No Borders
+default_border pixel 0
 
 # Start Firefox and Kitty on startup
 assign [class="Firefox"] → 1
