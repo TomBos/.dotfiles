@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+mpstat | awk '/all/ {
+    used = 100 - $13
+    printf "  %.2f%% |\n", used
+}'
+

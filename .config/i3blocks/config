@@ -4,6 +4,10 @@ separator=false
 command=$SCRIPT_DIR/network/bandwith
 interval=1
 
+[cpu]
+command=$SCRIPT_DIR/cpu/usage
+interval=5
+
 [ram]
 command=$SCRIPT_DIR/memory/ram
 interval=5
