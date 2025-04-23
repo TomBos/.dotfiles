@@ -183,7 +183,7 @@ bindsym Print exec --no-startup-id maim -s | xclip -selection clipboard -t image
 # finds out, if available)
 bar {
         position top
-        status_command i3status
+        status_command i3blocks
         strip_workspace_numbers yes
 }
 
