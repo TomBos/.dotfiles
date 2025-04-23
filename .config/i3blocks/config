@@ -1,10 +1,7 @@
 separator=true
 separator_block_width=15
 
-[greetings]
-color=#f5af19
-command=echo "Hello, $USER! script dir is in: $BLOCKS_SCRIPTS_DIR"
-interval=once
+# $SCRIPT_DIR/<script name>
 
 [time]
 command=date '+%Y-%m-%d %H:%M:%S'
