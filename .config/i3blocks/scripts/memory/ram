@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+free | awk '/Mem/ {
+  total=($2 / (1024*1024))
+  used=($3 / (1024*1024))
+  percent=(used+0)/(total+0)*100
+    printf "  %dG/%dG (%.1f%%) |\n", used, total, percent
+}'

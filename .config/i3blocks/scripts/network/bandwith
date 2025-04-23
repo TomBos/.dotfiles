@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+interface="enp14s0"
+
+read rx1 tx1 < <(awk -v iface="$interface" '$1 ~ iface ":" {
+  gsub(":", "", $1);
+  print $2, $10
+}' /proc/net/dev)
+
+sleep 0.7
+
+read rx2 tx2 < <(awk -v iface="$interface" '$1 ~ iface ":" {
+  gsub(":", "", $1);
+  print $2, $10
+}' /proc/net/dev)
+
+DOWNLOAD=$(( ((rx2 - rx1)*8) / 1024 ))
+UPLOAD=$(( ((tx2 - tx1)*8) / 1024 ))
+
+printf "%s Kb  | %s Kb  |\n" "$DOWNLOAD" "$UPLOAD"

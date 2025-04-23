@@ -1,7 +1,12 @@
-separator=true
-separator_block_width=15
+separator=false
 
-# $SCRIPT_DIR/<script name>
+[network]
+command=$SCRIPT_DIR/network/bandwith
+interval=1
+
+[ram]
+command=$SCRIPT_DIR/memory/ram
+interval=5
 
 [partition home]
 command=$SCRIPT_DIR/partitions/home
@@ -12,5 +17,5 @@ command=$SCRIPT_DIR/partitions/root
 interval=60
 
 [time]
-command=date '+%Y-%m-%d %H:%M:%S'
+command=date '+%d.%m.%Y %H:%M:%S'
 interval=5
