@@ -1,10 +1,15 @@
 #!/bin/bash
-# ~/git-templates/hooks/prepare-commit-msg
 
 BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD)
 PREFIX=$(echo "$BRANCH_NAME" | grep -oE '[a-zA-Z]+-[0-9]+')
+COMMIT_MSG_FILE="$1"
 
-# If the branch name matches the pattern, prepend the prefix to the commit message
 if [ -n "$PREFIX" ]; then
-  echo "$PREFIX $(cat "$1")" | tee "$1" > /dev/null
+  BODY=$(grep -v '^#' "$COMMIT_MSG_FILE")
+  COMMENTS=$(grep '^#' "$COMMIT_MSG_FILE")
+  {
+    echo "$PREFIX $BODY"
+    echo "$COMMENTS"
+  } > "$COMMIT_MSG_FILE"
 fi
+

@@ -3,6 +3,14 @@ separator_block_width=15
 
 # $SCRIPT_DIR/<script name>
 
+[partition home]
+command=$SCRIPT_DIR/partitions/home
+interval=60
+
+[partition root]
+command=$SCRIPT_DIR/partitions/root
+interval=60
+
 [time]
 command=date '+%Y-%m-%d %H:%M:%S'
 interval=5

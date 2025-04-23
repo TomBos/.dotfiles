@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+df -h / | awk '/\// {print "  " $3"/"$2, "("$5")"}'
