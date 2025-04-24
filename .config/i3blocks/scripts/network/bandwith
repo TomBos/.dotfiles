@@ -6,7 +6,7 @@ interface=$(ip -o link show | awk -F': ' '$2 ~ /^e/ {print $2; exit}')
 # Read RX/TX data
 read rx1 tx1 < <(awk -v iface="$interface" '$1 ~ iface ":" {print $2, $10}' /proc/net/dev)
 
-sleep 0.7
+sleep 1
 
 # Read updated RX/TX data
 read rx2 tx2 < <(awk -v iface="$interface" '$1 ~ iface ":" {print $2, $10}' /proc/net/dev)
