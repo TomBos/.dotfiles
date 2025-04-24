@@ -1,20 +1,19 @@
 #!/usr/bin/env bash
 
-interface="enp14s0"
+# Get the first Ethernet interface
+interface=$(ip -o link show | awk -F': ' '$2 ~ /^e/ {print $2; exit}')
 
-read rx1 tx1 < <(awk -v iface="$interface" '$1 ~ iface ":" {
-  gsub(":", "", $1);
-  print $2, $10
-}' /proc/net/dev)
+# Read RX/TX data
+read rx1 tx1 < <(awk -v iface="$interface" '$1 ~ iface ":" {print $2, $10}' /proc/net/dev)
 
 sleep 0.7
 
-read rx2 tx2 < <(awk -v iface="$interface" '$1 ~ iface ":" {
-  gsub(":", "", $1);
-  print $2, $10
-}' /proc/net/dev)
+# Read updated RX/TX data
+read rx2 tx2 < <(awk -v iface="$interface" '$1 ~ iface ":" {print $2, $10}' /proc/net/dev)
 
-DOWNLOAD=$(( ((rx2 - rx1)*8) / 1024 ))
-UPLOAD=$(( ((tx2 - tx1)*8) / 1024 ))
+# Calculate download/upload in Kb
+DOWNLOAD=$(( ((rx2 - rx1) * 8) / 1024 ))
+UPLOAD=$(( ((tx2 - tx1) * 8) / 1024 ))
 
+# Print the result
 printf "%s Kb  | %s Kb  |\n" "$DOWNLOAD" "$UPLOAD"
