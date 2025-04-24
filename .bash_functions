@@ -8,9 +8,11 @@ git() {
     fi
 };
 
+
 vim() {
     command nvim "$@"
 };
+
 
 fastfetch() {
     if [ "$1" == "--my-config" ]; then
@@ -20,9 +22,10 @@ fastfetch() {
     fi
 };
 
+
 stow() {
   if [[ "$(pwd)" != "$HOME/.dotfiles" ]]; then
-    echo -e "\033[31mWARNING! Stow blocked to prevent creating misplaced symlinks!\033[0m"
+    echo -e "\033[33m Stow was blocked to prevent creating misplaced symlinks  "
   else
     command stow "$@"
   fi
