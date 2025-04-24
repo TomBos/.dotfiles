@@ -19,3 +19,12 @@ fastfetch() {
         command fastfetch "$@"
     fi
 };
+
+stow() {
+  if [[ "$(pwd)" != "$HOME/.dotfiles" ]]; then
+    echo -e "\033[31mWARNING! Stow blocked to prevent creating misplaced symlinks!\033[0m"
+  else
+    command stow "$@"
+  fi
+}
+
