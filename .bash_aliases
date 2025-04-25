@@ -18,4 +18,4 @@ alias icat='kitten icat'                                          # Preview imag
 # === Disowne App And Start It From Terminal ===
 alias phpstorm='nohup phpstorm > /dev/null 2>&1 &'                # Start PHPStorm in background without any output
 alias filezilla='nohup filezilla > /dev/null 2>&1 &'              # Start FileZilla in background without any output
-alias thunderbird='nohup thunderbird > /dev/null 2>&1 &'          # Start Thunderbird in background without any output
+alias thunderbird='nohup thunderbird -P > /dev/null 2>&1 &'          # Start Thunderbird in background without any output
