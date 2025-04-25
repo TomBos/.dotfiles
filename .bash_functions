@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 git() {
     if [ "$1" == "clone" ]; then
         command git clone "$2"
@@ -13,6 +15,13 @@ vim() {
     command nvim "$@"
 };
 
+cd() {
+  if [[ "$1" == //* ]]; then
+    command cd ..
+  else
+    command cd "$@";
+  fi
+};
 
 fastfetch() {
     if [ "$1" == "--my-config" ]; then
