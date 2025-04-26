@@ -3,3 +3,8 @@
 .gitignore
 .gitmodules
 .gitattributes
+
+.config/nvim/.git
+.config/nvim/.gitignore
+.config/nvim/.gitmodules
+.config/nvim/.gitattributes
