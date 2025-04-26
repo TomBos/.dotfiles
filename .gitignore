@@ -1,11 +1,8 @@
-# Lazy Nvim LockFiles
-.config/nvim/lazy-lock.json
+# Neovim submodule
+.config/nvim
 
 # Custom sys Migrations lock file
 .scripts/sys-migrations/sync.lock
 
 # Local Ruby Path
 .exports/ruby.path
-
-# Mozilla Profiles (Prevent Tracking)
-.mozilla/firefox/
