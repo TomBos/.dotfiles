@@ -1,1 +1,2 @@
-export PATH="$HOME/.local/share/pnpm:$PATH"
+export PNPM_HOME="$HOME/.local/share/pnpm"
+export PATH="$PNPM_HOME:$PATH"
