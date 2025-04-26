@@ -1,4 +1,5 @@
 .memes
-.gitignore
 .git
+.gitignore
+.gitmodules
 .gitattributes
