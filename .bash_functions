@@ -38,5 +38,9 @@ stow() {
   else
     command stow "$@"
   fi
-}
+};
+
+gpsm() {
+ git pull --recurse-submodules && git submodule update --init --recursive 
+};
 
