@@ -10,6 +10,7 @@ alias reload='clear && source $BASHRC'                            # Reload bashc
 alias ducks='sudo du -ah --max-depth=1 | sort -hr | head -n 11'   # List biggest files in current dir
 alias cd..='cd ..'                                                # Gets rid of command not found
 alias vim='nvim'                                                  # Redirect vim commands to neovim
+alias mv='mv -i'                                                  # Prevent overriding files without prompt
 
 
 # === Uncategorized ===
