@@ -3,6 +3,3 @@
 
 # Custom sys Migrations lock file
 .scripts/sys-migrations/sync.lock
-
-# Local Ruby Path
-.exports/ruby.path

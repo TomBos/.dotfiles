@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+if command -v gem >/dev/null 2>&1; then
+    GEM_BIN=$(gem environment | awk '/USER INSTALLATION DIRECTORY/ {print $5}')/bin
+    export PATH="$GEM_BIN:$PATH"
+else
+      echo "gem is not available"
+fi

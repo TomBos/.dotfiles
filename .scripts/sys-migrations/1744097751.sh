@@ -68,8 +68,7 @@ else
 fi
 
 GEM_BIN="$(gem environment | awk '/USER INSTALLATION DIRECTORY/ {print $5}')/bin"
-echo 'export PATH="'"$GEM_BIN"':$PATH"' > "$HOME/.exports/ruby.path"
-
+echo "Gem bin located at: $GEM_BIN"
 
 # Add Flatpak and discord
 # flatpak install discord

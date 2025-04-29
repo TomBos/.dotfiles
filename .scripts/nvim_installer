@@ -1,12 +1,10 @@
 sudo pacman luarocks
 sudo pacman tree-sitter
-npm install -g neovim
-npm install -g tree-sitter-cli
 sudo pacman -S ripgrep
 sudo pacman -S fd
 pnpm add -g neovim
 sudo pacman -S python-neovim
-sudo pacman -S perl
-sudo pacman -S perl-app-cpanminus
-sudo ln -s /usr/bin/vendor_perl/cpanm /usr/bin/cpanm
-cpanm --notest Neovim::Ext
+sudo pacman -S lua51
+sudo pacman -S wget
+sudo pacman -S rust php jdk-openjdk python-pip
+sudo pacman -S julia composer
