@@ -109,7 +109,7 @@ bindsym $mod+a focus parent
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1: "
 set $ws2 "2: "
-set $ws3 "3:III"
+set $ws3 "3: "
 set $ws4 "4:IV"
 set $ws5 "5:V"
 set $ws6 "6:VI"
@@ -192,6 +192,9 @@ default_border pixel 0
 # Start Firefox and Kitty on startup
 assign [class="Firefox"] → 1
 assign [class="Kitty"] → 2
+assign [class="Neovim"] → 3
 
 exec --no-startup-id i3-msg "workspace $ws1; exec firefox"
 exec --no-startup-id i3-msg "workspace $ws2; exec kitty"
+exec --no-startup-id i3-msg "workspace $ws3; exec nvim"
+
