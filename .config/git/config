@@ -10,4 +10,3 @@
 
 [includeIf "gitdir:/var/www/html/github/"]
     path = ~/.config/git/github.gitconfig
-
