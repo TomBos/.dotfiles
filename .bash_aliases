@@ -15,7 +15,6 @@ alias mv='mv -i'                                                  # Prevent over
 
 # === Uncategorized ===
 alias nano='$HOME/.dotfiles/.memes/activate-nano.sh'              # Display prank message
-alias icat='kitten icat'                                          # Preview images inside terminal
 
 
 # === Disown App And Start It From Terminal ===

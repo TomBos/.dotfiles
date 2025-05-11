@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 git() {
     if [ "$1" == "clone" ]; then
         command git clone "$2"
@@ -23,6 +22,7 @@ cd() {
   fi
 };
 
+
 fastfetch() {
     if [ "$1" == "--my-config" ]; then
         command fastfetch --logo "$FAST_FETCH_LOGO_PATH" --logo-height 20 --logo-width 50 --logo-padding-top 3 --logo-padding-left 3
@@ -40,7 +40,13 @@ stow() {
   fi
 };
 
-gpsm() {
- git pull --recurse-submodules && git submodule update --init --recursive 
+
+git-submodule-update() {
+    git submodule update --remote --merge
 };
+
+
+icat() {
+    command kitty icat "$1" && echo -n "$1" | xclip -selection clipboard
+}
 
