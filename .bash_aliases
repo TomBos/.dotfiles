@@ -1,6 +1,6 @@
 # === PC state commands ===
-alias reboot='sudo systemctl reboot'                              # Gracefully reboot PC
-alias shutdown='sudo systemctl poweroff'                          # Gracefully shutdown PC
+alias reboot='systemctl reboot'                              	  # Gracefully reboot PC
+alias shutdown='systemctl poweroff'                          	  # Gracefully shutdown PC
 alias uefi='systemctl reboot --firmware-setup'                    # Boot into UEFI 
 
 
