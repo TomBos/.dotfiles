@@ -11,7 +11,7 @@ alias ducks='sudo du -ah --max-depth=1 | sort -hr | head -n 11'   # List biggest
 alias cd..='cd ..'                                                # Gets rid of command not found
 alias vim='nvim'                                                  # Redirect vim commands to neovim
 alias mv='mv -i'                                                  # Prevent overriding files without prompt
-
+alias icat='kitten icat'                                          # View image using icat
 
 # === Uncategorized ===
 alias nano='$HOME/.dotfiles/.memes/activate-nano.sh'              # Display prank message

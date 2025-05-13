@@ -45,8 +45,3 @@ git-submodule-update() {
     git submodule update --remote --merge
 };
 
-
-icat() {
-    command kitty icat "$1" && echo -n "$1" | xclip -selection clipboard
-}
-
