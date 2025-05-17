@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-if [ -d "$HOME/.local/share/JetBrains/Toolbox/apps/phpstorm/bin" ]; then
-  export PATH="$HOME/.local/share/JetBrains/Toolbox/apps/phpstorm/bin:$PATH"
-else
-  echo "PHP storm is not avaliable"
-fi
