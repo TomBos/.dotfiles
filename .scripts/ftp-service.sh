@@ -5,7 +5,7 @@ REMOTE_DIR=/mnt/ftp-servers/chi/htdocs
 
 inotifywait -mrq -e close_write --format "%w%f" "$LOCAL_DIR" | while read file; do
     case "$file" in
-        *4913|*.swp|*.swo|*.tmp|*.lock|*/.git/*|*.*~) continue ;;
+        *.swp|*.tmp|*.lock|*/.git/*|*.*~) continue ;;
     esac
 
     # Make target path match local structure
