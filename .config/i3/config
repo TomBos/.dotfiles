@@ -186,5 +186,5 @@ assign [class="Neovim"] → 3
 
 exec --no-startup-id i3-msg "workspace $ws1; exec firefox"
 exec --no-startup-id i3-msg "workspace $ws2; exec kitty"
-exec --no-startup-id i3-msg "workspace $ws3; exec kitty"
+exec --no-startup-id i3-msg "workspace $ws3; exec code"
 
