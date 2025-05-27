@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Get the first Ethernet interface
-interface=$(ip -o link show | awk -F': ' '$2 ~ /^e/ {print $2; exit}')
+interface=$(ip -o link show | awk -F': ' '$2 ~ /^e/ && $0 ~ /state UP/ {print $2; exit}')
 
 # Read RX/TX data
 read rx1 tx1 < <(awk -v iface="$interface" '$1 ~ iface ":" {print $2, $10}' /proc/net/dev)

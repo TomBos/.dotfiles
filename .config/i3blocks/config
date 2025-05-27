@@ -20,6 +20,10 @@ interval=60
 command=$SCRIPT_DIR/partitions/root
 interval=60
 
+[battery]
+command=$SCRIPT_DIR/battery/main
+interval=60
+
 [time]
 command=date '+%d.%m.%Y %H:%M:%S'
 interval=5
