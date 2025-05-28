@@ -1,0 +1,14 @@
+sudo pacman -S git
+sudo pacman -S openssh
+sudo pacman -S xorg xorg-server xorg-apps i3 xorg-xinit i3
+sudo pacman -S kitty
+sudo pacman -S xterm
+sudo pacman -S firefox
+sudo pacman -S xclip
+sudo pacman -S stow
+sudo pacman -S fastfetch
+sudo pacman -S imagemagick
+sudo pacman -S bash-completion
+sudo pacman -S iwd
+sudo pacman -S neovim
+sudo pacman -S go
