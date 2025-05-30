@@ -1,5 +1,6 @@
 # Neovim submodule
 .config/nvim
+.config/git/config
 
 # Custom sys Migrations lock file
 .scripts/sys-migrations/sync.lock
