@@ -9,17 +9,12 @@ git() {
     fi
 };
 
-
-vim() {
-    command nvim "$@"
-};
-
 cd() {
-  if [[ "$1" == //* ]]; then
-    command cd ..
-  else
-    command cd "$@";
-  fi
+    if [[ "$1" == //* ]]; then
+        command cd ..
+    else
+        command cd "$@";
+    fi
 };
 
 
@@ -33,11 +28,12 @@ fastfetch() {
 
 
 stow() {
-  if [[ "$(pwd)" != "$HOME/.dotfiles" ]]; then
-    echo -e "\033[33m Stow was blocked to prevent creating misplaced symlinks  "
-  else
-    command stow "$@"
-  fi
+    if [[ "$(pwd)" != "$HOME/.dotfiles" ]]; then
+        echo -e "\033[33m Stow was blocked to prevent creating misplaced symlinks  "
+    else
+        command stow "$@"
+        bash $HOME/.scripts/generate-git-config.sh 
+    fi
 };
 
 
