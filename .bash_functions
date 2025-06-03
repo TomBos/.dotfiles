@@ -3,7 +3,7 @@ git() {
     if [ "$1" == "clone" ]; then
         command git clone "$2"
         cd "$(basename "$2" .git)"
-        ~/.scripts/git-post-clone.sh
+        bash "$HOME/.scripts/git/git-post-clone.sh"
     else
         command git "$@"
     fi
@@ -32,7 +32,7 @@ stow() {
         echo -e "\033[33m Stow was blocked to prevent creating misplaced symlinks  "
     else
         command stow "$@"
-        bash $HOME/.scripts/generate-git-config.sh 
+        bash "$HOME/.scripts/git/generate-git-config.sh"
     fi
 };
 

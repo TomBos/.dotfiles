@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-LOCAL_DIR=/var/www/html/handel/presta-eshopy
-REMOTE_DIR=/mnt/ftp-servers/chi/htdocs
+LOCAL_DIR="$HOME/Projects/handel/presta-eshopy"
+REMOTE_DIR="/mnt/ftp-servers/chi/htdocs"
 
 inotifywait -mrq -e close_write --format "%w%f" "$LOCAL_DIR" | while read file; do
     case "$file" in
