@@ -21,7 +21,7 @@ command=$SCRIPT_DIR/partitions/root
 interval=60
 
 [battery]
-command=$SCRIPT_DIR/battery/main
+command=$SCRIPT_DIR/battery/percentage
 interval=60
 
 [time]

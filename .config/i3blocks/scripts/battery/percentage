@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+PERCENTAGE=$(cat /sys/class/power_supply/BAT0/capacity)
+
+# Set to 100 if device doesnt have battery
+: "${PERCENTAGE:=100}"
+
+
+echo "$PERCENTAGE" | awk '{
+    if ($1 > 80)       state = " ";
+    else if ($1 > 60)  state = " ";
+    else if ($1 > 40)  state = " ";
+    else if ($1 > 20)  state = " ";
+    else               state = " ";
+    printf "%s %s%% | \n", state, $1;
+}'
+
