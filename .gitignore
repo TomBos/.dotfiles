@@ -4,3 +4,6 @@
 
 # Custom sys Migrations lock file
 .scripts/sys-migrations/sync.lock
+
+# FTFPS config
+.config/FTPFS/config.yaml
