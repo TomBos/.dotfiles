@@ -41,3 +41,13 @@ git-submodule-update() {
     git submodule update --remote --merge
 };
 
+echo() {
+    if [[ "$#" -eq 1 && "$1" == "$PATH" ]]; then
+        command echo "$PATH" | tr ':' '\n'
+    else
+        command echo "$@"
+    fi
+};
+
+
+
