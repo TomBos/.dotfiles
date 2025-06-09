@@ -7,3 +7,6 @@
 
 # FTFPS config
 .config/FTPFS/config.yaml
+
+# Local excutable files
+.local/bin/*

@@ -1,25 +1,6 @@
 #!/usr/bin/env bash
-
-LOCAL_DIR="$HOME/Projects/handel/presta-eshopy"
-REMOTE_DIR="/mnt/ftp-servers/chi/htdocs"
-
-inotifywait -mrq -e close_write --format "%w%f" "$LOCAL_DIR" | while read file; do
-    case "$file" in
-        *.swp|*.tmp|*.lock|*/.git/*|*.*~) continue ;;
-    esac
-
-    # Make target path match local structure
-    rel_path="${file#$LOCAL_DIR/}"
-    dest_path="$REMOTE_DIR/$rel_path"
-
-    # Create dir if it doesnt exist
-    dest_dir=$(dirname "$dest_path")
-
-    if [ ! -d "$dest_dir" ]; then
-        mkdir -p "$dest_dir"
-    fi
-
-    # Copy the file
-    cp -f "$file" "$dest_path" && echo "✅ Synced: $rel_path"
-done
+echo "[*] The old FTP script is not supported anymore"
+echo "[*] The new FTP service supports multiple server and has much better performance"
+echo "[*] For the older script go to any commit up to f00439762eda3ed340e4a3e5942c39d63a109583 (08.06.2025 - dd.mm.YYYY)"
+echo "[!] For more info go to: https://github.com/TomBos/FTPFS"
 
