@@ -8,7 +8,7 @@ cat > $HOME/.config/git/config <<EOF
     email = tombos255@gmail.com
 
 [core]
-    editor = nvim
+    editor = vim
 
 [includeIf "gitdir:${GITDIR}/handel/"]
     path = $HOME/.config/git/handel.gitconfig
