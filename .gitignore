@@ -10,3 +10,4 @@
 
 # Local excutable files
 .local/bin/*
+!.local/bin/brightness
