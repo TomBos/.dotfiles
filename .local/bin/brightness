@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
 if [[ "$1" == "-h" ]]; then
-	echo "Use \`brightness [+/- <value>]\`, to set screen brightness"
+	echo "Use \`brightness [+/- <value>]\`, to modify screen brightness"
+	echo "OR  \`brightness <value>\`, to set screen brightness"
 	exit
 fi
 
