@@ -1,0 +1,18 @@
+{
+    "workbench.colorTheme": "One Dark Pro Night Flat",
+    "workbench.sideBar.location": "right",
+    "symbols.hidesExplorerArrows": false,
+    "workbench.iconTheme": "symbols",
+    "editor.minimap.enabled": false,
+    "git.autofetch": false,
+    "editor.fontWeight": "bold",
+    "chat.commandCenter.enabled": false,
+    "explorer.confirmDelete": false,
+    "redhat.telemetry.enabled": false,
+    "explorer.confirmDragAndDrop": false,
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "security.workspace.trust.untrustedFiles": "open",
+    "git.confirmSync": false,
+    "git.enableSmartCommit": false
+
+}
