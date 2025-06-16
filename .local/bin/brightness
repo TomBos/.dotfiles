@@ -13,4 +13,5 @@ else
 fi
 
 brightnessctl set "$value"
+echo
 
