@@ -11,3 +11,7 @@
 # Local excutable files
 .local/bin/*
 !.local/bin/brightness
+
+# Vim temp
+.vim/*
+

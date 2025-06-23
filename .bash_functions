@@ -49,5 +49,8 @@ echo() {
     fi
 };
 
+copy-branch() {
+  git rev-parse --abbrev-ref HEAD | xclip -selection clipboard
+};
 
 
