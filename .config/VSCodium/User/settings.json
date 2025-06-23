@@ -13,6 +13,7 @@
     "javascript.updateImportsOnFileMove.enabled": "always",
     "security.workspace.trust.untrustedFiles": "open",
     "git.confirmSync": false,
-    "git.enableSmartCommit": false
+    "git.enableSmartCommit": false,
+    "workbench.startupEditor": "none"
 
 }
