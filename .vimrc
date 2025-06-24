@@ -24,11 +24,6 @@ set noexpandtab         " Use real tabs, not spaces
 set autoindent
 set smartindent
 
-" Clipboard
-if has('clipboard')
-  set clipboard=unnamedplus
-endif
-
 " Undo persistence
 set undofile
 set undodir=~/.vim/undo
