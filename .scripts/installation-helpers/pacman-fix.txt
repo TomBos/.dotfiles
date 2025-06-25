@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+sudo vim /etc/mkinitcpio.d/linux.preset
+
+# Change
+fallback_options="-S autodetect"
+
+# To:
+fallback_options=""
+
+
