@@ -11,6 +11,7 @@ alias ducks='sudo du -ahxd1 | sort -hr | head -n 11'              # List biggest
 alias cd..='cd ..'                                                # Gets rid of command not found
 alias mv='mv -i'                                                  # Prevent overriding files without prompt
 alias icat='kitten icat'                                          # View image using icat
+alias copy='xclip -selection clipboard'							  # Copy text into clipboard
 
 # === Uncategorized ===
 alias nano='$HOME/.dotfiles/.memes/activate-nano.sh'              # Display prank message
@@ -19,6 +20,6 @@ alias nano='$HOME/.dotfiles/.memes/activate-nano.sh'              # Display pran
 # === Disown App And Start It From Terminal ===
 alias filezilla='nohup filezilla > /dev/null 2>&1 &'              # Start FileZilla in background without any output
 alias firefox='nohup firefox -P > /dev/null 2>&1 &'               # Start Firerfox in background without any output
-alias mullvad-vpn='nohup mullvad-vpn > /dev/null 2>&1 &'	  # Start Mullvad in background without any output
+alias mullvad-vpn='nohup mullvad-vpn > /dev/null 2>&1 &'	  	  # Start Mullvad in background without any output
 
 
