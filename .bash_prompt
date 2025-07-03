@@ -1,19 +1,35 @@
 #/usr/bin/env bash
 
+
+# Random name so I won’t accidentally call this
+YmFzZTY0() {
+        local branch=$(git symbolic-ref --short HEAD 2>/dev/null || git rev-parse --short HEAD 2>/dev/null)
+        if [[ -n "$branch" ]]; then
+			printf " \033[01;35m(%s) \033[00m" "$branch"
+		fi
+}
+
+
 # Colors
 RED='\[\033[01;31m\]'
 GREEN='\[\033[01;32m\]'
 BLUE='\[\033[01;34m\]'
+PURPLE='\[\033[01;35m\]'
 RESET='\[\033[00m\]'
+
 
 # Account names → red
 ACCOUNT="${RED}\u${RESET}"
 
+
 # Hostname → green
 HOSTNAME="${GREEN}\h${RESET}"
+
 
 # Directories → blue
 WORKING_DIR="${BLUE}\w${RESET}"
 
-export PS1="${ACCOUNT}@${HOSTNAME}:${WORKING_DIR}\$ "
+
+export PS1="${ACCOUNT}@${HOSTNAME}:${WORKING_DIR}\$(YmFzZTY0)\$ "
+
 
