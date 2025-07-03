@@ -9,30 +9,21 @@ if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" = 1 ];then
 fi
 
 
-# Set colorful prompt
-# Account names → red
-# Hostname → green
-# Directories → blue
-export PS1='\[\033[01;31m\]\u\[\033[00m\]@\[\033[01;32m\]\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+# Source prompt config
+if [ -f "$HOME/.bash_prompt" ]; then
+	. "$HOME/.bash_prompt"
+else
+	export PS1="\u@\h:\w\$ "
+fi
 
 
 # Ensure correct PATH
 export PATH="$HOME/bin:/usr/local/bin:/usr/bin:/bin"
 
 
-# Enable color for ls and listing commands
-if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
-    alias la='ls -A --color=auto'  # Lists all except . and .. with colors
-    alias ll='ls -l --color=auto'  # Long listing with colors
-    alias l='ls -CF --color=auto'  # Compact listing with colors
-fi
-
-
 # Load custom aliases if available
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
+if [ -f "$HOME/.bash_aliases" ]; then
+    . "$HOME/.bash_aliases"
 fi
 
 
@@ -43,26 +34,27 @@ fi
 
 
 # Load custom bash functions
-if [ -f ~/.bash_functions ]; then
-    . ~/.bash_functions
+if [ -f "$HOME/.bash_functions" ]; then
+    . "$HOME/.bash_functions"
 fi
 
 
 # Load Custom exports and paths
-if [ -d ~/.exports ]; then
-   for file in ~/.exports/*; do
-     if [ -f "$file" ]; then
-        source "$file"     
-     fi
-   done 
+if [ -d "$HOME/.exports" ]; then
+	for file in "$HOME/.exports/"*; do
+		if [ -f "$file" ]; then
+			. "$file"     
+		fi
+	done 
 fi
 
 
 # Display Fast Fetch
 if command -v fastfetch &>/dev/null; then
-  # Load Fast Fetch with logo
-  fastfetch --my-config
+	# Load Fast Fetch with logo
+	fastfetch --my-config
 else
-  echo -e "Fastfetch is not available."
+	echo -e "Fastfetch is not available."
 fi
+
 

@@ -1,0 +1,19 @@
+#/usr/bin/env bash
+
+# Colors
+RED='\[\033[01;31m\]'
+GREEN='\[\033[01;32m\]'
+BLUE='\[\033[01;34m\]'
+RESET='\[\033[00m\]'
+
+# Account names → red
+ACCOUNT="${RED}\u${RESET}"
+
+# Hostname → green
+HOSTNAME="${GREEN}\h${RESET}"
+
+# Directories → blue
+WORKING_DIR="${BLUE}\w${RESET}"
+
+export PS1="${ACCOUNT}@${HOSTNAME}:${WORKING_DIR}\$ "
+
