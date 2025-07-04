@@ -3,10 +3,10 @@
 
 # Random name so I won’t accidentally call this
 YmFzZTY0() {
-        local branch=$(git symbolic-ref --short HEAD 2>/dev/null || git rev-parse --short HEAD 2>/dev/null)
-        if [[ -n "$branch" ]]; then
-			printf " \033[01;35m(%s) \033[00m" "$branch"
-		fi
+	local branch=$(git symbolic-ref --short HEAD 2>/dev/null || git rev-parse --short HEAD 2>/dev/null)
+	if [[ -n "$branch" ]]; then
+		printf " \033[01;35m(%s) \033[00m" "$branch"
+	fi
 }
 
 
