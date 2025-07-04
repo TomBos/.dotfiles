@@ -1,15 +1,16 @@
 #!/usr/bin/env bash
 set -e
 
+
 REPO_URL="$1"
 CUSTOM_DIR="$2"
 
 
-# Check if custom path was specified
+# Determine the intended clone directory
 if [[ -n "$CUSTOM_DIR" ]]; then
-  CLONE_DIR="$CUSTOM_DIR"
+  CLONE_DIR="$PWD/$CUSTOM_DIR"
 else
-  CLONE_DIR="$(basename "${REPO_URL%/}" .git)"
+  CLONE_DIR="$PWD/$(basename "${REPO_URL%/}" .git)"
 fi
 
 
@@ -20,8 +21,10 @@ command git clone "$REPO_URL" "$CLONE_DIR"
 # Change dir for conviniece
 cd "$CLONE_DIR"
 
+echo "$CLONE_DIR"
+echo "$HOME/Projects/handel/"*
 
-if [[ "$(realpath "$CLONE_DIR")" == "$HOME/Projects/handel/"* ]]; then
+if [[ "$CLONE_DIR" == "$HOME/Projects/handel/"* ]]; then
 	# Set the template directory path
 	TEMPLATE_DIR="$HOME/git-templates/handel/hooks"
 	TARGET_DIR="$CLONE_DIR/.git/hooks"

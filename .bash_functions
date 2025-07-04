@@ -2,7 +2,7 @@
 git() {
     if [ "$1" == "clone" ]; then
 		# Pass all args starting at 2nd
-        bash "$HOME/.scripts/git/git-post-clone.sh" "${@:2}"
+        bash -x "$HOME/.scripts/git/git-post-clone.sh" "${@:2}"
     else
         command git "$@"
     fi
