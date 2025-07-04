@@ -18,10 +18,16 @@ alias uefi='systemctl reboot --firmware-setup'					# Boot into UEFI
 alias ll='ls -lah'												# Ls shortcut
 alias reload='clear && source $BASHRC'							# Reload bashconfig 
 alias ducks='sudo du -ahxd1 | sort -hr | head -n 11'			# List biggest files and directories in current dir
-alias cd..='cd ..'												# Gets rid of command not found
 alias mv='mv -i'												# Prevent overriding files without prompt
 alias icat='kitten icat'										# View image using icat
 alias copy='xclip -selection clipboard'							# Copy text into clipboard
+
+
+# == Typos ==
+alias chomd='chmod'
+alias gut='git'
+alias cd..='cd ..'
+
 
 # == Uncategorized ==
 alias nano='$HOME/.dotfiles/.memes/activate-nano.sh'			# Display prank message
