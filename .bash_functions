@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
 git() {
     if [ "$1" == "clone" ]; then
-        command git clone "$2"
-        cd "$(basename "$2" .git)"
-        bash "$HOME/.scripts/git/git-post-clone.sh"
+		# Pass all args starting at 2nd
+        bash "$HOME/.scripts/git/git-post-clone.sh" "${@:2}"
     else
         command git "$@"
     fi

@@ -1,19 +1,38 @@
 #!/usr/bin/env bash
+set -e
 
-# Set the template directory path
-TEMPLATE_DIR=~/git-templates/handel/hooks
-
-# Get the current directory
-CURRENT_DIR=$(pwd)
+REPO_URL="$1"
+CUSTOM_DIR="$2"
 
 
-if [[ "$CURRENT_DIR" == /var/www/html/handel/* ]]; then
+# Check if custom path was specified
+if [[ -n "$CUSTOM_DIR" ]]; then
+  CLONE_DIR="$CUSTOM_DIR"
+else
+  CLONE_DIR="$(basename "${REPO_URL%/}" .git)"
+fi
+
+
+# Clone into the resolved directory
+command git clone "$REPO_URL" "$CLONE_DIR"
+
+
+# Change dir for conviniece
+cd "$CLONE_DIR"
+
+
+if [[ "$(realpath "$CLONE_DIR")" == "$HOME/Projects/handel/"* ]]; then
+	# Set the template directory path
+	TEMPLATE_DIR="$HOME/git-templates/handel/hooks"
+	TARGET_DIR="$CLONE_DIR/.git/hooks"
+
 	# Remove samples
-	rm -f "$CURRENT_DIR/.git/hooks"/*.sample
+	rm -f "$TARGET_DIR/"*.sample
 
 	# Copy template
-	cp -r "$TEMPLATE_DIR"/* ".git/hooks/"
+	cp -r "$TEMPLATE_DIR/"* "$TARGET_DIR/"
 
 	# Confirmation message
 	echo "Git hooks applied from template directory."
 fi
+
