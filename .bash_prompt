@@ -9,29 +9,11 @@ _git_branch() {
 }
 
 # Colors
-RED='\[\033[01;31m\]'
-GREEN='\[\033[01;32m\]'
-BLUE='\[\033[01;34m\]'
-PURPLE='\[\033[01;35m\]'
-RESET='\[\033[00m\]'
+RED=$'\[\033[01;31m\]'
+GREEN=$'\[\033[01;32m\]'
+BLUE=$'\[\033[01;34m\]'
+PURPLE=$'\[\033[01;35m\]'
+RESET=$'\[\033[00m\]'
 
-
-# Account names → red
-ACCOUNT="${RED}\u${RESET}"
-
-
-# Hostname → green
-HOSTNAME="${GREEN}\h${RESET}"
-
-
-# Directories → blue
-WORKING_DIR="${BLUE}\w${RESET}"
-
-
-# Git info -> purple
-GIT="${PURPLE}\$(_git_branch)${RESET}"
-
-
-export PS1="${ACCOUNT}@${HOSTNAME}:${WORKING_DIR} ${GIT}\$ "
-
+export PS1="${RED}\u${RESET}@${GREEN}\h${RESET}:${BLUE}\w${RESET} ${PURPLE}\$(_git_branch)${RESET}\$ "
 
