@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 git() {
-	if [ "$1" == "clone" ]; then
+	if [[ "$1" == "clone" ]]; then
 		# Pass all args starting at 2nd
 		bash -x "$HOME/.scripts/git/git-post-clone.sh" "${@:2}"
 	else
@@ -19,7 +19,7 @@ cd() {
 
 
 fastfetch() {
-	if [ "$1" == "--my-config" ]; then
+	if [[ "$1" == "--my-config" ]]; then
 		local height=20
 		local width=50
 		local pd_top=3
