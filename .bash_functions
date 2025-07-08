@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 git() {
 	if [[ "$1" == "clone" ]]; then
+		local dest	
 		# Pass all args starting at 2nd
-		bash -x "$HOME/.scripts/git/git-post-clone.sh" "${@:2}"
+		dest=$(bash "$HOME/.scripts/git/git-post-clone.sh" "${@:2}") || return 1
+		cd "$dest" || return 1
 	else
 		command git "$@"
 	fi

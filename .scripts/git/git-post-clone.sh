@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 set -e
 
-
 REPO_URL="$1"
 CUSTOM_DIR="$2"
 
@@ -18,13 +17,7 @@ fi
 command git clone "$REPO_URL" "$CLONE_DIR"
 
 
-# Change dir for conviniece
-cd "$CLONE_DIR"
-
-echo "$CLONE_DIR"
-echo "$HOME/Projects/handel/"*
-
-if [[ "$CLONE_DIR" == "$HOME/Projects/handel/"* ]]; then
+if [[ "$CLONE_DIR" == $HOME/Projects/handel/* ]]; then
 	# Set the template directory path
 	TEMPLATE_DIR="$HOME/git-templates/handel/hooks"
 	TARGET_DIR="$CLONE_DIR/.git/hooks"
@@ -34,8 +27,8 @@ if [[ "$CLONE_DIR" == "$HOME/Projects/handel/"* ]]; then
 
 	# Copy template
 	cp -r "$TEMPLATE_DIR/"* "$TARGET_DIR/"
-
-	# Confirmation message
-	echo "Git hooks applied from template directory."
 fi
+
+# stdout
+echo "$CLONE_DIR"
 
