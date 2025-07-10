@@ -3,7 +3,10 @@ git() {
 	if [[ "$1" == "clone" ]]; then
 		local dest	
 		# Pass all args starting at 2nd
-		dest=$(bash "$HOME/.scripts/git/git-post-clone.sh" "${@:2}") || return 1
+		if ! dest=$(bash "$HOME/.scripts/git/git-post-clone.sh" "${@:2}"); then
+			echo "  git-post-clone.sh failed" >&2
+			return 1
+		fi
 		cd "$dest" || return 1
 	else
 		command git "$@"

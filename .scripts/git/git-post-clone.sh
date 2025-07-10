@@ -17,7 +17,7 @@ fi
 command git clone "$REPO_URL" "$CLONE_DIR"
 
 
-if [[ "$CLONE_DIR" == $HOME/Projects/handel/* ]]; then
+if [[ "$CLONE_DIR" == "$HOME/Projects/handel/"* ]]; then
 	# Set the template directory path
 	TEMPLATE_DIR="$HOME/git-templates/handel/hooks"
 	TARGET_DIR="$CLONE_DIR/.git/hooks"
