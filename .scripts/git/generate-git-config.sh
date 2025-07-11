@@ -15,5 +15,9 @@ cat > $HOME/.config/git/config <<EOF
 
 [includeIf "gitdir:${GITDIR}/github/"]
     path = $HOME/.config/git/github.gitconfig
+
+[alias]
+    exclude = "!f() { for f in \"\$@\"; do echo \"\$f\" >> .git/info/exclude; done; }; f"
+
 EOF
 
