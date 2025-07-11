@@ -57,12 +57,12 @@ git-submodule-update() {
 };
 
 echo() {
-	if [[ "$#" -eq 1 && "$1" == "$PATH" ]]; then
+	if [[ "$#" -eq 1 ]] && [[ "${1:-}" = "$PATH" ]]; then
 		command echo "$PATH" | tr ':' '\n'
 	else
 		command echo "$@"
 	fi
-};
+}
 
 copy-branch() {
 	git rev-parse --abbrev-ref HEAD | copy

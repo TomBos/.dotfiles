@@ -1,19 +1,19 @@
-#/usr/bin/env bash
+#!/usr/bin/env bash
 
-_git_branch() {
-	local branch
-	branch=$(git symbolic-ref --short HEAD 2>/dev/null || git rev-parse --short HEAD 2>/dev/null)
-	if [[ -n "$branch" ]]; then
-		echo "($branch)"
-	fi
-}
+_ps1_git_branch_() {
+    local branch
+    branch=$(command git symbolic-ref --quiet --short HEAD 2>/dev/null)
+    if [ -n "$branch" ]; then
+        echo "($branch)"
+    fi
+};
 
 # Colors
-RED=$'\[\033[01;31m\]'
-GREEN=$'\[\033[01;32m\]'
-BLUE=$'\[\033[01;34m\]'
-PURPLE=$'\[\033[01;35m\]'
-RESET=$'\[\033[00m\]'
+RED='\[\033[01;31m\]'
+GREEN='\[\033[01;32m\]'
+BLUE='\[\033[01;34m\]'
+PURPLE='\[\033[01;35m\]'
+RESET='\[\033[00m\]'
 
-export PS1="${RED}\u${RESET}@${GREEN}\h${RESET}:${BLUE}\w${RESET} ${PURPLE}\$(_git_branch)${RESET}\$ "
+export PS1="${RED}\u${RESET}@${GREEN}\h${RESET}:${BLUE}\w${RESET} ${PURPLE}\$(_ps1_git_branch_)${RESET}\$ "
 

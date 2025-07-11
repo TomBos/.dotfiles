@@ -1,10 +1,10 @@
 # == Enable color for ls and listing commands ==
-if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+if command -v dircolors &>/dev/null; then
+    eval "$(dircolors -b)"
     alias ls='ls --color=auto'
-    alias la='ls -A --color=auto'  # Lists all except . and .. with colors
-    alias ll='ls -l --color=auto'  # Long listing with colors
-    alias l='ls -CF --color=auto'  # Compact listing with colors
+    alias la='ls -A --color=auto'  # all except . and .. with colors
+    alias ll='ls -l --color=auto'  # long listing with colors
+    alias l='ls -CF --color=auto'  # compact listing with colors
 fi
 
 
