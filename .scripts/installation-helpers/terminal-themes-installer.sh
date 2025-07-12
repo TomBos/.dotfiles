@@ -1,2 +1,4 @@
 #!/usr/bin/env bash
-bash -c "$(wget -qO- https://git.io/vQgMr)"
+URL="https://git.io/vQgMr"
+curl -fsSL "$URL" | bash
+
