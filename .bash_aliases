@@ -36,4 +36,6 @@ alias nano='$HOME/.dotfiles/.memes/activate-nano.sh'			# Display prank message
 # == Disown App And Start It From Terminal ==
 alias filezilla='nohup filezilla > /dev/null 2>&1 &'			# Start FileZilla in background without any output
 alias firefox='nohup firefox -P > /dev/null 2>&1 &'				# Start Firerfox in background without any output
+alias librewolf='nohup librewolf -P > /dev/null 2>&1 &'			# Start Librewolf in background without any output
+
 
