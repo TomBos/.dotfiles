@@ -68,3 +68,7 @@ copy-branch() {
 	git rev-parse --abbrev-ref HEAD | copy
 };
 
+unzip() {
+	command unzip "$1" -d ${1/.zip/}
+};
+
