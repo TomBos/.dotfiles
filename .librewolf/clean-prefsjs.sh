@@ -25,5 +25,8 @@ for profile in "${dirs[@]}"; do
 	else
 		echo -e "${GREEN}No duplicates found in $profile${RESET}"
 	fi
+	
+	cp -f user.js "$profile/user.js"
+	echo -e "${GREEN}Copied user.js to $profile${RESET}"
 done
 
