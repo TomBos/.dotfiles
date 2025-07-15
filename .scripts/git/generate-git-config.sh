@@ -1,8 +1,12 @@
-GITDIR="$HOME/Projects"
+#!/usr/bin/env bash
+set -euo pipefail
 
-mkdir -p $HOME/{.config/git,Projects}
+GIT_PROJECTS_DIR="${PROJECTS:-$HOME/src}"
+GIT_CONFIG_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/git"
 
-cat > $HOME/.config/git/config <<EOF
+mkdir -p "$GIT_CONFIG_DIR" "$GIT_PROJECTS_DIR"
+
+cat > "$GIT_CONFIG_DIR/config" <<EOF
 [user]
     name = Tomáš Bosák
     email = tombos255@gmail.com
@@ -10,14 +14,13 @@ cat > $HOME/.config/git/config <<EOF
 [core]
     editor = vim
 
-[includeIf "gitdir:${GITDIR}/handel/"]
-    path = $HOME/.config/git/handel.gitconfig
+[includeIf "gitdir:${GIT_PROJECTS_DIR}/handel/"]
+    path = ${GIT_CONFIG_DIR}/handel.gitconfig
 
-[includeIf "gitdir:${GITDIR}/github/"]
-    path = $HOME/.config/git/github.gitconfig
+[includeIf "gitdir:${GIT_PROJECTS_DIR}/github/"]
+    path = ${GIT_CONFIG_DIR}/github.gitconfig
 
 [alias]
     exclude = "!f() { for f in \"\$@\"; do echo \"\$f\" >> .git/info/exclude; done; }; f"
-
 EOF
 
