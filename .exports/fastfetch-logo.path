@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
-LOGO="Arch.png"
+LOGO_FILE="Arch.png"
+LOGO_PATH="$HOME/Documents/Pictures/Logo/$LOGO"
 
-if [ -f "$HOME/Documents/Pictures/Logo/$LOGO" ]; then
-  export FAST_FETCH_LOGO_PATH="$HOME/Documents/Pictures/Logo/$LOGO"
+if [ -f "$LOGO_PATH" ]; then
+  export FAST_FETCH_LOGO_PATH="$LOGO_PATH"
 else
   echo "Fast fetch logo not found"
 fi
