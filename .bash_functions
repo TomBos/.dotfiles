@@ -1,13 +1,8 @@
 #!/usr/bin/env bash
 git() {
 	if [[ "$1" == "clone" ]]; then
-		local dest	
-		# Pass all args starting at 2nd
-		if ! dest=$(bash "$HOME/.scripts/git/git-post-clone.sh" "${@:2}"); then
-			echo "  git-post-clone.sh failed" >&2
-			return 1
-		fi
-		cd "$dest" || return 1
+		command git clone "${@:2}"
+		echo "	 Apply git hooks  "
 	else
 		command git "$@"
 	fi
