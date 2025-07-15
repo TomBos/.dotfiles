@@ -33,19 +33,19 @@ if [[ -f "/usr/share/bash-completion/bash_completion" ]]; then
 fi
 
 
-# Load custom bash functions
-if [[ -f "$HOME/.bash_functions" ]]; then
-    . "$HOME/.bash_functions"
-fi
-
-
 # Load Custom exports and paths
 if [[ -d "$HOME/.exports" ]]; then
 	for file in "$HOME/.exports/"*; do
 		if [[ -f "$file" ]]; then
-			. "$file"     
+			. "$file"
 		fi
-	done 
+	done
+fi
+
+
+# Load custom bash functions
+if [[ -f "$HOME/.bash_functions" ]]; then
+    . "$HOME/.bash_functions"
 fi
 
 
