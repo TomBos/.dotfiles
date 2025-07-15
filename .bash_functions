@@ -64,6 +64,9 @@ copy-branch() {
 };
 
 unzip() {
-	command unzip "$1" -d ${1/.zip/}
+	[[ -z "$1" ]] && { echo "Usage: unzip <file.zip>"; return 1; }
+	local dirname="${1%.zip}"
+	dirname="${dirname// /-}"
+	command unzip "$1" -d "$dirname"
 };
 
