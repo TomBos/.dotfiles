@@ -31,7 +31,7 @@ fastfetch() {
 		local pd_left=3
 
 		command fastfetch \
-		--logo "$FAST_FETCH_LOGO_PATH" \
+		--logo "$FASTFETCH_LOGO_PATH" \
 		--logo-height "$height" \
 		--logo-width "$width" \
 		--logo-padding-top "$pd_top" \
