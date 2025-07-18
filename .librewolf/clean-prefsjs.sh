@@ -25,8 +25,15 @@ for profile in "${dirs[@]}"; do
 	else
 		echo -e "${GREEN}No duplicates found in $profile${RESET}"
 	fi
-	
+
+ 	# Remove any existing browser.download.dir line
+	sed -i '/^user_pref("browser\.download\.dir",.*);$/d' "$profile/prefs.js"
 	cp -f user.js "$profile/user.js"
+	
+	# Support XDG compliance
+	echo "user_pref(\"browser.download.dir\", \"$XDG_DOWNLOAD_DIR\");" >> "$profile/user.js"
+	echo "user_pref("browser.download.folderList", 2);" >> "$profile/user.js"
+
 	echo -e "${GREEN}Copied user.js to $profile${RESET}"
 done
 
