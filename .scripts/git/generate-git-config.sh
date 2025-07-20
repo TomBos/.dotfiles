@@ -12,7 +12,7 @@ cat > "$GIT_CONFIG_DIR/config" <<EOF
     email = tombos255@gmail.com
 
 [core]
-    editor = vim
+    editor = nvim
 
 [includeIf "gitdir:${GIT_PROJECTS_DIR}/handel/"]
     path = ${GIT_CONFIG_DIR}/handel.gitconfig

@@ -1,8 +1,3 @@
-# Minimal .bashrc
-export LANG="en_US.UTF-8"
-export CLICOLOR=1
-
-
 # Start Hyprland
 if [[ -z "$DISPLAY" ]] && [[ "$(tty)" == "/dev/tty1" ]];then
   export $XDG_SESSION_TYPE=wayland
