@@ -1,9 +1,14 @@
 # Only interactive use
 [[ $- == *i* ]] || return
 
-load_bashrc() {
-	local bash_config="$HOME/.config/bash/bashrc"
-	source "$bash_config"
-};
+# Load Custom exports and paths
+if [[ -d "$HOME/.exports" ]]; then
+	for file in "$HOME/.exports/"*; do
+		if [[ -f "$file" ]]; then
+			source "$file"
+		fi
+	done
+fi
 
-load_bashrc
+
+source "$XDG_CONFIG_HOME/bash/bashrc"
