@@ -1,3 +1,6 @@
+# Only interactive use
+[[ $- == *i* ]] || return
+
 # Start Hyprland
 if [[ -z "$DISPLAY" ]] && [[ "$(tty)" == "/dev/tty1" ]];then
   export $XDG_SESSION_TYPE=wayland
@@ -43,14 +46,3 @@ fi
 if [[ -f "$HOME/.bash_functions" ]]; then
     . "$HOME/.bash_functions"
 fi
-
-
-# Display Fast Fetch
-if command -v fastfetch &>/dev/null; then
-	# Load Fast Fetch with logo
-	fastfetch --my-config
-else
-	echo -e "Fastfetch is not available."
-fi
-
-
