@@ -34,4 +34,4 @@ fi
 
 
 # Load custom bash functions
-source "$HOME/bash/functions"
+source "$XDG_CONFIG_HOME/bash/functions"

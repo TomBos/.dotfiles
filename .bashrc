@@ -1,4 +1,9 @@
 # Only interactive use
 [[ $- == *i* ]] || return
 
-source "$XDG_CONFIG_HOME/bash/bashrc"
+load_bashrc() {
+	local bash_config="$HOME/.config/bash/bashrc"
+	source "$bash_config"
+};
+
+load_bashrc
