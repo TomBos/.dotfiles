@@ -3,9 +3,10 @@ export LANG="en_US.UTF-8"
 export CLICOLOR=1
 
 
-# Start i3
-if [[ -z "$DISPLAY" ]] && [[ "$XDG_VTNR" = 1 ]];then
-  startx
+# Start Hyprland
+if [[ -z "$DISPLAY" ]] && [[ "$(tty)" == "/dev/tty1" ]];then
+  export $XDG_SESSION_TYPE=wayland
+  dbus-run-session Hyprland
 fi
 
 
