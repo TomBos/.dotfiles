@@ -1,0 +1,29 @@
+# == Enable color for ls and listing commands ==
+if command -v dircolors &>/dev/null; then
+    eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    alias la='ls -A --color=auto'
+    alias l='ls -CF --color=auto'
+fi
+
+# == PC state commands ==
+alias reboot='systemctl reboot'
+alias shutdown='systemctl poweroff'
+alias uefi='systemctl reboot --firmware-setup'
+
+# == Helpfull Shortcuts ==
+alias ll='ls -lah'
+alias reload='clear && source $BASHRC'
+alias ducks='sudo du -ahxd1 | sort -hr | head -n 11'
+alias mv='mv -i'
+alias icat='kitten icat'
+
+# == Typos ==
+alias chomd='chmod'
+alias gut='git'
+alias cd..='cd ..'
+
+# == Disown App And Start It From Terminal ==
+alias filezilla='nohup filezilla > /dev/null 2>&1 &'
+alias librewolf='nohup librewolf -P > /dev/null 2>&1 &'
+
