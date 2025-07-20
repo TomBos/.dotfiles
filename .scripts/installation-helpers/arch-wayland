@@ -6,3 +6,4 @@ ttf-nerd-fonts-symbols
 git clone https://aur.archlinux.org/nerd-fonts-jetbrains-mono.git
 cd nerd-fonts-jetbrains-mono
 makepkg -si
+swww

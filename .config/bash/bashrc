@@ -1,7 +1,8 @@
 # Start Hyprland
 if [[ -z "$DISPLAY" ]] && [[ "$(tty)" == "/dev/tty1" ]];then
-  export $XDG_SESSION_TYPE=wayland
-  dbus-run-session Hyprland
+    swww-daemon &
+	export $XDG_SESSION_TYPE=wayland
+	dbus-run-session Hyprland
 fi
 
 
@@ -19,7 +20,7 @@ source "$XDG_CONFIG_HOME/bash/aliases"
 
 # Enable Bash autocompletion support (Arch-style)
 if [[ -f "/usr/share/bash-completion/bash_completion" ]]; then
-    . "/usr/share/bash-completion/bash_completion"
+	source "/usr/share/bash-completion/bash_completion"
 fi
 
 

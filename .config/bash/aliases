@@ -2,8 +2,7 @@
 if command -v dircolors &>/dev/null; then
     eval "$(dircolors -b)"
     alias ls='ls --color=auto'
-    alias la='ls -A --color=auto'
-    alias l='ls -CF --color=auto'
+    alias l='ls --color=auto'
 fi
 
 # == PC state commands ==
