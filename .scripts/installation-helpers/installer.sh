@@ -6,7 +6,6 @@ kitty
 openssh
 librewolf-bin
 stow
-fastfetch
 imagemagick
 bash-completion
 php
