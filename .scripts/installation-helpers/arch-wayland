@@ -1,9 +1,12 @@
 openssh
 ttf-poppins
 ttf-nerd-fonts-symbols
-
+swww
+ripgrep
+unzip
 
 git clone https://aur.archlinux.org/nerd-fonts-jetbrains-mono.git
 cd nerd-fonts-jetbrains-mono
 makepkg -si
-swww
+
+
