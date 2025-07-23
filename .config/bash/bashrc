@@ -4,14 +4,8 @@ if [[ -z "$DISPLAY" ]] && [[ "$(tty)" == "/dev/tty1" ]];then
 	dbus-run-session Hyprland
 fi
 
-# Load Custom exports and paths
-if [[ -d "$HOME/.exports" ]]; then
-	for file in "$HOME/.exports/"*; do
-		if [[ -f "$file" ]]; then
-			source "$file"
-		fi
-	done
-fi
+# Source env variables
+source "$XDG_CONFIG_HOME/bash/env-exports"
 
 # Source prompt config
 source "$XDG_CONFIG_HOME/bash/prompt"
