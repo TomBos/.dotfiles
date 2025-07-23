@@ -1,0 +1,8 @@
+TSInstall bash
+TSInstall php
+TSInstall css
+TSInstall cpp
+TSInstall html
+TSInstall python
+TSInstall sql
+TSInstall yaml
