@@ -22,7 +22,7 @@ stow() {
 		echo -e "\033[33m Stow was blocked to prevent creating misplaced symlinks  "
 	else
 		command stow "$@"
-		bash "$HOME/.scripts/git/generate-git-config.sh"
+		bash "$XDG_CONFIG_HOME/git/generate-git-config"
 	fi
 };
 
