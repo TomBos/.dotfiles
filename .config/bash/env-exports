@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+for file in "$XDG_CONFIG_HOME/bash/env/"*; do
+	source "$file"
+done
+
