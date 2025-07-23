@@ -8,20 +8,12 @@ fi
 # Source prompt config
 source "$XDG_CONFIG_HOME/bash/prompt"
 
-
-# Ensure correct PATH
-export PATH="$HOME/bin:/usr/local/bin:/usr/bin:/bin"
-
-
 # Load custom aliases if available
 source "$XDG_CONFIG_HOME/bash/aliases"
 
-
-# Enable Bash autocompletion support (Arch-style)
-if [[ -f "/usr/share/bash-completion/bash_completion" ]]; then
-	source "/usr/share/bash-completion/bash_completion"
-fi
-
-
 # Load custom bash functions
 source "$XDG_CONFIG_HOME/bash/functions"
+
+# Enable Bash autocompletion support
+source "$XDG_CONFIG_HOME/bash/completion"
+
