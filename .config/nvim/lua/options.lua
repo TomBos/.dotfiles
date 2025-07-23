@@ -1,5 +1,3 @@
--- ~/.config/nvim/lua/options.lua
-
 require "nvchad.options"
 
 local opt = vim.opt
@@ -32,4 +30,5 @@ opt.autoindent = true
 opt.smartindent = true
 
 -- Ignore global clipboard override
-vim.opt.clipboard = ""
+opt.clipboard = ""
+
