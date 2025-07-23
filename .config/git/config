@@ -1,0 +1,15 @@
+[user]
+    name = Tomáš Bosák
+    email = tombos255@gmail.com
+
+[core]
+    editor = nvim
+
+[includeIf "gitdir:/home/tombos/src/handel/"]
+    path = /home/tombos/.config/git/handel.gitconfig
+
+[includeIf "gitdir:/home/tombos/src/github/"]
+    path = /home/tombos/.config/git/github.gitconfig
+
+[alias]
+    exclude = "!f() { for f in \"$@\"; do echo \"$f\" >> .git/info/exclude; done; }; f"
