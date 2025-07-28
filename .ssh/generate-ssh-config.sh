@@ -27,7 +27,7 @@ for key_file in "$HOME/.ssh/"*.pub; do
 
 	platform="${platforms[$platform_index]}"
 
-	echo "$platform $key_file" >> "platforms.tmp"
+	echo "$platform ${key_file/.pub/}" >> "platforms.tmp"
 done;
 
 last_platform=""
@@ -52,4 +52,5 @@ EOF
 
 done
 
+echo "New config was appended to $HOME/.ssh/config !"
 rm "platforms.tmp"
