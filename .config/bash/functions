@@ -40,7 +40,7 @@ echo() {
 }
 
 copy-branch() {
-	git rev-parse --abbrev-ref HEAD | copy
+	git rev-parse --abbrev-ref HEAD | wl-copy
 };
 
 unzip() {
