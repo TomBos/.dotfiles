@@ -3,17 +3,27 @@
 shopt -s nullglob
 set -e
 
-echo "(split hosts by comas, without spaces)"
-read -rp "Which platforms do you want to connect to? (github.com,gitlab.com): " hosts
-IFS=',' read -ra platforms <<< "$hosts"
+read -rp "Which platforms do you want to connect to? (github.com, bitbucket.org): " hosts
+IFS=',' read -ra raw_platforms <<< "$hosts"
+platforms=()
+last_platform=""
+
+for p in "${raw_platforms[@]}"; do
+    trimmed=$(echo "$p" | xargs)
+    [[ -n "$trimmed" ]] && platforms+=("$trimmed")
+done
 
 
-for key_file in "$HOME/.ssh/"*.pub; do
-	read -r algorithm sshkey email < "$key_file"
+for pub_key in "$HOME/.ssh/"*.pub; do
+	priv_key=${pub_key/.pub/}
+	
+	if [[ ! -f $priv_key ]]; then
+		continue;
+	fi
 
-	shortkey="${sshkey:0:4}...${sshkey: -4}"
+	read -r algorithm sshkey email < "$pub_key"
 
-	echo "Found SSH key for $email, key was created using the $algorithm algorithm. ($shortkey)"
+	echo "Found SSH key for $email, key was created using the $algorithm algorithm. ($priv_key)"
 	for i in "${!platforms[@]}"; do
 		echo "$i -> ${platforms[$i]}"
 	done;
@@ -27,30 +37,31 @@ for key_file in "$HOME/.ssh/"*.pub; do
 
 	platform="${platforms[$platform_index]}"
 
-	echo "$platform ${key_file/.pub/}" >> "platforms.tmp"
+	echo "$platform $priv_key" >> "platforms.tmp"
 done;
 
-last_platform=""
 
-sort platforms.tmp | while read -r platform key_file; do
-    if [[ "$platform" != "$last_platform" ]]; then
+sort platforms.tmp | while read -r platform key_location; do
+    
+	if [[ "$platform" != "$last_platform" ]]; then
         cat <<EOF >> config
 Host $platform
-    User git
-    Hostname $platform
-    IdentitiesOnly yes
+	User git
+	Hostname $platform
+	IdentitiesOnly yes
 
 EOF
     fi
+
 	last_platform="$platform"
 
 	cat << EOF >> config
-Match host $platform exec "test -f $key_file"
-	IdentityFile $key_file
+Match host $platform exec "test -f $key_location"
+	IdentityFile $key_location
 
 EOF
 
 done
 
-echo "New config was appended to $HOME/.ssh/config !"
+echo "New config was appended to $HOME/.ssh/config!"
 rm "platforms.tmp"
