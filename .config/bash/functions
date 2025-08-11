@@ -50,3 +50,6 @@ unzip() {
 	command unzip "$1" -d "$dirname"
 };
 
+record() {
+	wf-recorder -g "$(slurp)" -f "$XDG_PICTURES_DIR/$(date +%Y-%m-%d_%H-%M-%S).mp4"
+};
