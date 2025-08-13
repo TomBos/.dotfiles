@@ -51,6 +51,6 @@ record() {
 
 
 screenshot() {
-	grim -g "$(slurp)" -f "$XDG_PICTURES_DIR/$(date +%Y-%m-%d_%H-%M-%S).jpg"
+	grim -g "$(slurp)" "$XDG_PICTURES_DIR/$(date +%Y-%m-%d_%H-%M-%S).jpg"
 }
 
