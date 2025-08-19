@@ -1,8 +1,0 @@
-bmewburn.vscode-intelephense-client
-editorconfig.editorconfig
-kylinideteam.gitlens
-ms-python.debugpy
-ms-python.python
-vscodevim.vim
-wilfriedago.vscode-symbols-icon-theme
-zhuangtongfa.material-theme
