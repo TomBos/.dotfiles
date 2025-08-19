@@ -52,5 +52,30 @@ record() {
 
 screenshot() {
 	grim -g "$(slurp)" "$XDG_PICTURES_DIR/$(date +%Y-%m-%d_%H-%M-%S).jpg"
-}
+};
+
+
+mount-as-usb() {
+    local USB_DIR="/mnt/usb"
+
+    # Check if directory exists
+    if [[ ! -d "$USB_DIR" ]]; then
+        echo "$USB_DIR does not exist, exiting"
+        return 1
+    fi
+
+    # Check if a device argument was provided
+    if [[ -z "$1" ]]; then
+        echo "Usage: mount-as-usb /dev/sdX1"
+        return 1
+    fi
+
+    # Mount with UID/GID, show errors if it fails
+    sudo mount -o uid=1000,gid=1000 "$1" "$USB_DIR" || {
+        echo "Mount failed for $1"
+        return 1
+    }
+
+    echo "$1 mounted to $USB_DIR"
+};
 
