@@ -7,3 +7,5 @@
 .config/nvim/.gitignore
 .config/nvim/.gitmodules
 .config/nvim/.gitattributes
+
+LICENSE
