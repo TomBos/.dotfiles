@@ -14,11 +14,17 @@ cat > "$GIT_CONFIG_DIR/config" <<EOF
 [core]
     editor = nvim
 
+[commit]
+    gpgsign = true
+
+[init]
+    defaultBranch = master
+
 [includeIf "gitdir:${GIT_PROJECTS_DIR}/handel/"]
     path = ${GIT_CONFIG_DIR}/handel.gitconfig
 
-[includeIf "gitdir:${GIT_PROJECTS_DIR}/github/"]
-    path = ${GIT_CONFIG_DIR}/github.gitconfig
+[includeIf "gitdir:${GIT_PROJECTS_DIR}/srht/"]
+    path = ${GIT_CONFIG_DIR}/srht.gitconfig
 
 [alias]
     exclude = "!f() { for f in \"\$@\"; do echo \"\$f\" >> .git/info/exclude; done; }; f"
