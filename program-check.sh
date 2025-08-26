@@ -54,7 +54,7 @@ check_pkgs() {
 			fi
 		elif [[ "$type" == "aur" ]]; then
 			if ! pacman -Qm "$pkg" &>/dev/null; then
-				colored_echo "$pkg (AUR) is NOT installed !" "$RED"
+				colored_echo "$pkg (AUR) is not installed !" "$RED"
 				all_installed=0
 			fi
 		fi
