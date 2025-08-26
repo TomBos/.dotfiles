@@ -4,6 +4,9 @@
 # FTFPS config
 .config/FTPFS/*.yaml*
 
+# Dynamically generated git config
+.config/git/config
+
 # Local excutable files
 .local/bin/*
 !.local/bin/brightness
