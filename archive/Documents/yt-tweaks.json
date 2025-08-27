@@ -1,0 +1,25 @@
+{
+	"videosPerRow":true,
+	"maxNumOfColumns":"4",
+	"hideShorts":true,
+	"hideMixes":true,
+	"hideUpcoming":true,
+	"hideLatestYouTubePosts":true,
+	"hideRecommendationBar":true,
+	"disableAutoPause":true,
+	"alwaysShowProgBar":false,
+	"hideRightSidebar":false,
+	"gridSearchResults":false,
+	"compactHeaderBar":false,
+	"ytLogoSubsPage":false,
+	"sResultsInNewTab":false,
+	"compactLeftSidebar":true,
+	"hideShortsButton":true,
+	"hideExplore":true,
+	"hideMoreFromYt":true,
+	"dtEnableOnLightMode":true,
+	"darkThemes":"Icy Blue",
+	"showFullVideoTitles":false,
+	"redSubscribeButton":true
+}
+
