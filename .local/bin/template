@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+show_help() {
+	local program_name="${0##*/}"	
+	echo
+	echo "Usage: $program_name <mandatory> [optional]"
+	echo
+	echo "Options: "
+	echo " -h, --help	Show this help message"
+	echo
+}
+
+main() {
+	echo "template"
+}
+
+if [[ $# == 0 || "$1" == "-h" || "$1" == "--help" ]]; then 
+	show_help
+	exit 1
+fi
+
+main "$@"

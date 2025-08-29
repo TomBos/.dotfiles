@@ -7,11 +7,6 @@
 # Dynamically generated git config
 .config/git/config
 
-# Local excutable files
-.local/bin/*
-!.local/bin/brightness
-!.local/bin/extract
-
 # Vim temp
 .vim/*
 

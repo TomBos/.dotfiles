@@ -20,6 +20,7 @@ main() {
 		exit 3
 	fi
 
+	# Derivate dir name from the zip file	
 	local dirname
 	if [[ -n "$2" ]]; then
 		dirname="$2"
