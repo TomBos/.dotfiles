@@ -6,7 +6,6 @@
 
 # Official repo packages
 official_pkgs=(
-	ttf-nerd-fonts-symbols
 	swww
 	ripgrep
 	unzip
@@ -20,6 +19,11 @@ official_pkgs=(
 	hyprland
 	tree
 	neovim
+	noto-fonts-cjk
+	noto-fonts-emoji
+	noto-fonts-extra
+	noto-fonts
+	ttf-nerd-fonts-symbols
 )
 
 # AUR/foreign packages

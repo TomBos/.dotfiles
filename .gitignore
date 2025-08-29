@@ -10,7 +10,7 @@
 # Local excutable files
 .local/bin/*
 !.local/bin/brightness
-!.local/bin/now
+!.local/bin/extract
 
 # Vim temp
 .vim/*
