@@ -1,30 +1,23 @@
 #!/usr/bin/env bash
-show_banner() {
-	echo "============================================="
-	echo "Extract – CLI utility for extracting archives"
-	echo "============================================="
-}
-
 show_help() {
-	show_banner
+	local program_name="${0##*/}"	
 	echo
-	echo "Usage: extract <file.zip> [dir-name]"
+	echo "Usage: $program_name <file.zip> [dir-name]"
+	echo
+	echo "Options: "
+	echo " -h, --help	Show this help message"
+	echo
 }
 
-extract_file () {
+main() {
 	if ! command -v unzip >/dev/null 2>&1; then
 		echo "Error: unzip is not installed." >&2
-		exit 1
-	fi
-
-	if [[ -z "$1" || "$1" == "-h" || "$1" == "--help" ]]; then 
-		show_help
-		return 2
+		exit 2
 	fi
 	
 	if [[ "$1" != *.zip ]]; then
 		echo "Error: '$1' is not a .zip file" >&2
-		return 3
+		exit 3
 	fi
 
 	local dirname
@@ -38,5 +31,10 @@ extract_file () {
 	command unzip "$1" -d "$dirname"
 }
 
-extract_file "$@"
+if [[ $# == 0 || "$1" == "-h" || "$1" == "--help" ]]; then 
+	show_help
+	exit 1
+fi
+
+main "$@"
 
