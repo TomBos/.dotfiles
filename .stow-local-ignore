@@ -7,6 +7,7 @@
 .config/nvim/.gitignore
 .config/nvim/.gitmodules
 .config/nvim/.gitattributes
+.config/i3blocks
 
 LICENSE
 program-check.sh
