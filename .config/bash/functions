@@ -3,10 +3,9 @@ cd() {
 	if [[ "$1" == //* ]]; then
 		command cd ..
 	else
-		command cd "$@";
+		command cd "$@"
 	fi
-};
-
+}
 
 stow() {
 	if [[ "$(pwd)" != "$HOME/.dotfiles" ]]; then
@@ -15,37 +14,27 @@ stow() {
 		command stow "$@"
 		bash "$XDG_CONFIG_HOME/git/generate-git-config"
 	fi
-};
-
+}
 
 git-submodule-update() {
 	git submodule update --remote --merge
-};
-
-
-echo() {
-	if [[ "$#" -eq 1 ]] && [[ "${1:-}" = "$PATH" ]]; then
-		command echo "$PATH" | tr ':' '\n'
-	else
-		command echo "$@"
-	fi
 }
 
+path() {
+	printf "%s\n" "${PATH//:/\n}"
+}
 
 copy-branch() {
 	git rev-parse --abbrev-ref HEAD | wl-copy
-};
-
+}
 
 record() {
 	wf-recorder -g "$(slurp)" -f "$XDG_PICTURES_DIR/$(date +%Y-%m-%d_%H-%M-%S).mp4"
-};
-
+}
 
 screenshot() {
 	grim -g "$(slurp)" "$XDG_PICTURES_DIR/$(date +%Y-%m-%d_%H-%M-%S).jpg"
-};
-
+}
 
 mount-as-usb() {
     local USB_DIR="/mnt/usb"
@@ -69,5 +58,5 @@ mount-as-usb() {
     }
 
     echo "$1 mounted to $USB_DIR"
-};
+}
 
