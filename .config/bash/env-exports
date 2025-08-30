@@ -2,7 +2,7 @@
 shopt -s nullglob
 
 for file in "$XDG_CONFIG_HOME/bash/env/"*; do
-	[[ -f "$f" ]] || continue	
+	[[ ! -f "$file" ]] && echo "$file is not file !" 
 	source "$file"
 done
 
