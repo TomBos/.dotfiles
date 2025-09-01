@@ -21,7 +21,10 @@ git-submodule-update() {
 }
 
 path() {
-	printf "%s\n" "${PATH//:/\n}"
+    local IFS=':'
+    for p in $PATH; do
+        echo "$p"
+    done
 }
 
 copy-branch() {
