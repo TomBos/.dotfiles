@@ -3,7 +3,6 @@
 
 export XDG_CONFIG_HOME="$HOME/.config"
 
-if [[ -f "$XDG_CONFIG_HOME/bash/bashrc" ]]; then
-  source "$XDG_CONFIG_HOME/bash/bashrc"
-fi
+bashrc_file="$XDG_CONFIG_HOME/bash/bashrc"
+[[ -f $bashrc_file ]] && source "$bashrc_file"
 
