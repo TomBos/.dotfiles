@@ -99,11 +99,16 @@ main() {
 	# The single > truncates the file, this is intentional
 	echo 'set(0, "defaultfigurevisible", "off");' > "$matlab_file"
 
-	local src_dir="${input_file%/*}"
-	local dest_dir="${matlab_file%/*}"
-
 	# If dest_dir is empty (file in current directory), default to "."
+	local dest_dir="${matlab_file%/*}"
 	[[ -z "$dest_dir" ]] && dest_dir="."
+
+	# If input_file has no path, set src_dir to current working directory
+	if [[ "$input_file" == */* ]]; then
+		local src_dir="${input_file%/*}"
+	else
+		local src_dir="$PWD"
+	fi
 
 	# Append input file content to MATLAB file
 	while IFS= read -r line; do
