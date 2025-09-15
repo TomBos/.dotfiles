@@ -1,0 +1,141 @@
+#!/usr/bin/env bash
+shopt -s nullglob
+
+matlab_file="/tmp/matlab.runtime.m"
+input_file=""
+plot=0
+shifter=2
+
+show_help() {
+	local program_name="${0##*/}"	
+	echo
+	echo "Usage: $program_name [options]"
+	echo
+	echo "Options:"
+	echo " -h, --help    Show this help message"
+	echo " -i, --input   Load input file into MATLAB"	
+	echo " -o, --out     Specify output file"
+	echo " -p, --plot    Force plotting onto graph [Y/n]"
+	echo
+}
+
+getarg() {
+	local arg="$1"
+	local val="$2"
+
+	case "$arg" in
+		-h|--help)
+			show_help
+			exit 0
+			;; 
+		-i|--input)
+			getinput "$arg" "$val"	
+			;;
+		-o|--out)
+			getoutput "$arg" "$val"	
+			;;
+		-p|--plot)
+			getplot "$arg" "$val"	
+			;;
+		*)
+			echo "Unknown argument: $arg" >&2
+			exit 1
+			;;
+	esac
+}
+
+getinput() {
+	local arg="$1"
+	local val="$2"
+	
+	# Check if a value is provided and it's not another argument
+	if [[ -n "$val" && "$val" != -* ]]; then
+		input_file="$val"		
+		shifter=2
+	else
+		echo "Error: $arg requires a value" >&2
+		exit 1
+	fi
+}
+
+getoutput() {
+	local arg="$1"
+	local val="$2"
+
+	# Check if a value is provided and it's not another argument
+	if [[ -n "$val" && "$val" != -* ]]; then
+		matlab_file="$val"		
+		shifter=2
+	else
+		echo "Error: $arg requires a value" >&2
+		exit 1
+	fi
+}
+
+getplot() {
+	local arg="$1"
+	local val="$2"
+
+	# Check if a value is provided and it's not another argument
+	if [[ -n "$val" && "$val" != -* ]]; then
+		case "${val,,}" in
+			no|n) plot=0 ;;
+			yes|y) plot=1 ;;
+			*)
+				echo "Error: $arg accepts only yes/y or no/n" >&2
+				exit 1
+				;;
+		esac
+		shifter=2
+	else
+		# No value provided → default to yes
+		plot=1
+		shifter=1
+	fi
+}
+
+main() {
+	# Turn off Wayland-incompatible Qt GUI
+	# The single > truncates the file, this is intentional
+	echo 'set(0, "defaultfigurevisible", "off");' > "$matlab_file"
+
+	local src_dir="${input_file%/*}"
+	local dest_dir="${matlab_file%/*}"
+
+	# If dest_dir is empty (file in current directory), default to "."
+	[[ -z "$dest_dir" ]] && dest_dir="."
+
+	# Append input file content to MATLAB file
+	while IFS= read -r line; do
+		printf '%s\n' "$line"
+	done < "$input_file" >> "$matlab_file"
+
+	# Enable plotting if requested
+	if (( plot )); then
+		echo 'print -dpng "plot.png";' >> "$matlab_file"
+	fi
+
+	# Copy all function files, if dest_dir is not current directory
+	if [[ "$dest_dir" != "." ]]; then
+		function_files=("$src_dir"/*.m)
+		[[ ${#function_files[@]} -gt 0 ]] && cp "${function_files[@]}" "$dest_dir"
+	fi
+
+	# Run GNU Octave in headless mode
+	command octave --no-gui "$matlab_file"
+}
+
+# Parse command-line arguments
+while (( $# > 0 )); do
+	getarg "$1" "$2"
+	shift "$shifter"
+done
+
+# Ensure input file is provided
+if [[ -z "$input_file" ]]; then
+	show_help
+	exit 1
+fi
+
+main
+
