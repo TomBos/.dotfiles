@@ -120,8 +120,8 @@ main() {
 		echo 'print -dpng "plot.png";' >> "$matlab_file"
 	fi
 
-	# Copy all function files, if dest_dir is not current directory
-	if [[ "$dest_dir" != "." ]]; then
+	# Copy all function files, if dest_dir is current directory
+	if [[ "$dest_dir" == "." ]]; then
 		function_files=("$src_dir"/*.m)
 		[[ ${#function_files[@]} -gt 0 ]] && cp "${function_files[@]}" "$dest_dir"
 	fi
