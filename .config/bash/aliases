@@ -27,4 +27,5 @@ alias got='git'
 alias filezilla='nohup filezilla > /dev/null 2>&1 &'
 alias librewolf='nohup librewolf -P > /dev/null 2>&1 &'
 alias finance='nohup actual -P > /dev/null 2>&1 &'
+alias firefox='nohup firefox > /dev/null 2>&1 &'
 
