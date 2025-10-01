@@ -24,6 +24,9 @@ official_pkgs=(
 	noto-fonts-extra
 	noto-fonts
 	ttf-nerd-fonts-symbols
+	waybar	
+	octave
+	jdk21-openjdk
 )
 
 # AUR/foreign packages
@@ -97,12 +100,4 @@ if [[ "$aur_status" == 1 ]]; then
 fi
 
 echo
-
-# --- COMPILED PACKAGES ---
-
-# git clone https://aur.archlinux.org/nerd-fonts-jetbrains-mono.git
-# cd nerd-fonts-jetbrains-mono
-# makepkg -si
-
-# paru
 
