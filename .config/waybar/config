@@ -1,0 +1,110 @@
+{
+	"layer": "top",
+	"position": "top",
+	"autohide": true,
+	"autohide-blocked": false,
+	"exclusive": true,
+	"passthrough": false,
+	"gtk-layer-shell": true,
+	
+	"modules-left": [
+		"custom/archicon",
+		"clock",
+		"cpu",
+		"memory",
+		"disk",
+		"temperature"
+	],
+
+	"modules-right": [
+		"wlr/taskbar",
+		"pulseaudio",
+		"battery",	
+		"hyprland/language"
+	],
+	
+	"custom/archicon": {
+		"format": "",
+		"on-click": "rofi --show drun",
+		"tooltip": false
+	},
+	
+	"clock": {
+		"timezone": "Europe/Prague",
+		"format": "{:%H:%M %d.%m.%Y}",
+		"tooltip-format": "{calendar}",
+		"calendar": {
+			"mode": "month"
+		}
+	},
+	
+	"cpu": {
+		"format": "  {usage}%"
+	},
+	
+	"memory": {
+		"format": "  {}%",
+		"tooltip": true,
+		"tooltip-format": "RAM usage: {used} / {total} ({percentage}%)"
+	},
+	
+	"disk": {
+		"format": "  {percentage_used}%",
+		"tooltip": true,
+		"tooltip-format": "Free space: {used} / {total} ({percentage_used}%)",
+		"path": "/home"	
+	},
+	
+	"temperature": {
+		"format": " {temperatureC}°C",
+		"tooltip": true,
+		"tooltip-format": "Current temperature: {temperatureC}°C\nCritical if > 80°C"
+	},
+	
+	"wlr/taskbar": {
+		"format": "{icon}",
+		"all-outputs": true,
+		"active-first": true,
+		"tooltip-format": "{name}",
+		"on-click": "activate",
+		"on-click-middle": "close",
+		"ignore-list": [
+			"rofi"
+		]
+	},
+	
+	"pulseaudio": {
+		"format": "{icon} {volume}%",
+		"format-muted": "󰝟",
+		"format-icons": {
+			"default": [
+				"󰕿",
+				"󰖀",
+				"󰕾",
+			]
+		}
+	},
+	
+	"battery": {
+		"format": "{icon} {capacity}%",
+		"tooltip": true,
+		"tooltip-format": "Battery: {capacity}%\nStatus: {status}\nTime remaining: {time}",
+		"format-icons": [
+			"",
+			"",
+			"",
+			"",
+			""
+		],
+		"low-percentage": 15,
+		"critical-percentage": 5
+	},
+
+
+	"hyprland/language": {
+		"format": "  {}",
+		"on-click": "hyprctl switchxkblayout at-translated-set-2-keyboard next",
+		"format-cs": "CZ",
+		"format-en": "ENG"
+	}
+}
