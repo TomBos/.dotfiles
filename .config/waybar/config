@@ -19,7 +19,7 @@
 	"modules-right": [
 		"wlr/taskbar",
 		"pulseaudio",
-		"battery",	
+		"custom/battery",	
 		"hyprland/language"
 	],
 	
@@ -85,19 +85,9 @@
 		}
 	},
 	
-	"battery": {
-		"format": "{icon} {capacity}%",
-		"tooltip": true,
-		"tooltip-format": "Battery: {capacity}%\nStatus: {status}\nTime remaining: {time}",
-		"format-icons": [
-			"",
-			"",
-			"",
-			"",
-			""
-		],
-		"low-percentage": 15,
-		"critical-percentage": 5
+	"custom/battery": {
+		"exec": "~/.config/waybar/modules/battery",
+		"interval": 10,
 	},
 
 

@@ -20,6 +20,7 @@ window#waybar.hidden {
 #disk,
 #temperature,
 #pulseaudio,
+#custom-battery,
 #language {
 	color: #161320;
 	margin-top: 6px;
@@ -70,6 +71,10 @@ window#waybar.hidden {
 
 #temperature {
 	background: #F8BD96;
+}
+
+#custom-battery {
+	background: #F9E2AF;
 }
 
 #taskbar {
