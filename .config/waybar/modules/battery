@@ -12,6 +12,6 @@ echo "$PERCENTAGE" | awk '{
     else if ($1 > 40)  state = " ";
     else if ($1 > 20)  state = " ";
     else               state = " ";
-    printf "%s%s%%", state, $1;
+    printf "%s %s%%", state, $1;
 }'
 

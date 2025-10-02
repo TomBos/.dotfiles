@@ -26,6 +26,7 @@ official_pkgs=(
 	ttf-nerd-fonts-symbols
 	waybar	
 	octave
+	rofi	
 	jdk21-openjdk
 )
 

@@ -25,7 +25,7 @@
 	
 	"custom/archicon": {
 		"format": "",
-		"on-click": "rofi --show drun",
+		"on-click": "rofi -show drun",
 		"tooltip": false
 	},
 	
@@ -64,7 +64,7 @@
 	"wlr/taskbar": {
 		"format": "{icon}",
 		"all-outputs": true,
-		"active-first": true,
+		"active-first": false,
 		"tooltip-format": "{name}",
 		"on-click": "activate",
 		"on-click-middle": "close",
@@ -80,14 +80,14 @@
 			"default": [
 				"󰕿",
 				"󰖀",
-				"󰕾",
+				"󰕾"
 			]
 		}
 	},
 	
 	"custom/battery": {
 		"exec": "~/.config/waybar/modules/battery",
-		"interval": 10,
+		"interval": 10
 	},
 
 
