@@ -1,0 +1,4 @@
+shopt -s histappend
+mkdir -p "$HOME/.local/state/bash"
+PROMPT_COMMAND='history -a; history -n;'
+
