@@ -16,6 +16,9 @@ source "$XDG_CONFIG_HOME/bash/aliases"
 # Load custom bash functions
 source "$XDG_CONFIG_HOME/bash/functions"
 
+# Load custom bash history settings
+source "$XDG_CONFIG_HOME/bash/history"
+
 # Enable Bash autocompletion support
 source "$XDG_CONFIG_HOME/bash/completion"
 
