@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-cd() {
+function cd() {
 	if [[ "$1" == //* ]]; then
 		command cd ..
 	else
@@ -7,7 +7,7 @@ cd() {
 	fi
 }
 
-stow() {
+function stow() {
 	if [[ "$(pwd)" != "$HOME/.dotfiles" ]]; then
 		echo -e "\033[33m Stow was blocked to prevent creating misplaced symlinks  "
 	else
@@ -16,50 +16,66 @@ stow() {
 	fi
 }
 
-git-submodule-update() {
+function git-submodule-update() {
 	git submodule update --remote --merge
 }
 
-path() {
-    local IFS=':'
-    for p in $PATH; do
-        echo "$p"
-    done
+function path() {
+	local IFS=':'
+	for p in $PATH; do
+		echo "$p"
+	done
 }
 
-copy-branch() {
+function copy-branch() {
 	git rev-parse --abbrev-ref HEAD | wl-copy
 }
 
-record() {
+function record() {
 	wf-recorder -g "$(slurp)" -f "$XDG_PICTURES_DIR/$(date +%Y-%m-%d_%H-%M-%S).mp4"
 }
 
-screenshot() {
+function screenshot() {
 	grim -g "$(slurp)" "$XDG_PICTURES_DIR/$(date +%Y-%m-%d_%H-%M-%S).jpg"
 }
 
-mount-as-usb() {
-    local USB_DIR="/mnt/usb"
+function mount-as-usb() {
+	local USB_DIR="/mnt/usb"
+	
+	# Check if directory exists
+	if [[ ! -d "$USB_DIR" ]]; then
+		echo "$USB_DIR does not exist, exiting"
+		return 1
+	fi
 
-    # Check if directory exists
-    if [[ ! -d "$USB_DIR" ]]; then
-        echo "$USB_DIR does not exist, exiting"
-        return 1
-    fi
+	# Check if a device argument was provided
+	if [[ -z "$1" ]]; then
+		echo "Usage: mount-as-usb /dev/sdX1"
+		return 1
+	fi
 
-    # Check if a device argument was provided
-    if [[ -z "$1" ]]; then
-        echo "Usage: mount-as-usb /dev/sdX1"
-        return 1
-    fi
+	# Mount with UID/GID, show errors if it fails
+	sudo mount -o uid=1000,gid=1000 "$1" "$USB_DIR" || {
+		echo "Mount failed for $1"
+		return 1
+	}
 
-    # Mount with UID/GID, show errors if it fails
-    sudo mount -o uid=1000,gid=1000 "$1" "$USB_DIR" || {
-        echo "Mount failed for $1"
-        return 1
-    }
+	echo "$1 mounted to $USB_DIR"
+}
 
-    echo "$1 mounted to $USB_DIR"
+function steam() {
+	local count=0
+	local max=4
+
+	nohup steam > /dev/null 2>&1 &
+	# Keep sleeping until "$HOME/.steampath" is not dangling symlink 
+	while [[ ! -L "$HOME/.steampath" || -e "$HOME/.steampath" ]]; do
+		((count++))	
+		sleep 0.5
+		if ((count >= max));then
+			break
+		fi
+	done
+	rm -f "$HOME/.steampath"
 }
 

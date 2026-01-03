@@ -27,6 +27,7 @@ alias cd..='cd ..'
 # == Disown App And Start It From Terminal ==
 alias filezilla='nohup filezilla > /dev/null 2>&1 &'
 alias librewolf='nohup librewolf -P > /dev/null 2>&1 &'
-alias finance='nohup actual -P > /dev/null 2>&1 &'
 alias firefox='nohup firefox > /dev/null 2>&1 &'
 alias virtualbox='nohup virtualbox > /dev/null 2>&1 &'
+alias obsidian='nohup obsidian > /dev/null 2>&1 & disown'
+

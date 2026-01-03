@@ -56,9 +56,11 @@
 	},
 	
 	"temperature": {
-		"format": " {temperatureC}°C",
-		"tooltip": true,
-		"tooltip-format": "Current temperature: {temperatureC}°C\nCritical if > 80°C"
+		"hwmon-path": "/sys/class/hwmon/hwmon0/temp1_input",
+		"format": "{icon} {temperatureC}°C",
+		"format-icons": ["", "", ""],
+		"critical-threshold": 80,
+		"tooltip": true
 	},
 	
 	"wlr/taskbar": {
