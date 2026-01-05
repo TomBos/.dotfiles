@@ -13,7 +13,6 @@ tree
 neovim
 noto-fonts-cjk
 noto-fonts-emoji
-noto-fonts-extra
 noto-fonts
 ttf-nerd-fonts-symbols
 waybar
@@ -22,3 +21,13 @@ wl-clipboard
 rofi
 jdk21-openjdk
 flatpak
+less
+slurp
+grim
+steam
+vulkan-radeon
+lib32-vulkan-radeon
+vulkan-tools
+wf-recorder
+obsidian
+cups
