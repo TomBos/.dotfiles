@@ -31,9 +31,10 @@ check_dependencies() {
 		lp
 		lpstat
 		lpadmin
+		ghostscript
 	)
 	
-	for cmd in "${deps[@]}"; do
+	for cmd in "${dependencies[@]}"; do
 		if ! command -v "$cmd" >/dev/null 2>&1; then
 			echo "Missing dependency: $cmd" >&2
 			missing=1
