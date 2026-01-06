@@ -97,6 +97,7 @@ print_file() {
 	file="$2"
 	if [[ -z "$printer" || -z "$file" ]];then
 		show_help
+		return 1
 	fi
 
 	if [[ ! -f "$file" ]]; then

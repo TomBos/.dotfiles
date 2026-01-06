@@ -1,17 +1,49 @@
 #!/usr/bin/env bash
 
-if [[ "$1" == "-h" ]]; then
-	echo "Use \`brightness [+/- <value>]\`, to modify screen brightness"
-	echo "OR  \`brightness <value>\`, to set screen brightness"
-	exit
-fi
+show_help() {
+	local path="$0"
+	local program_name="${path##*/}"
+	
+	cat <<EOF
+Usage:
+	$program_name [+/- <value>]
+EOF
+}
 
-if [[ "$1" == *-* ]]; then
-    value="${1//-/}-"
-else
-    value="$1"
-fi
+check_dependencies() {
+	local missing=0
+	
+	local dependencies=(
+		brightnessctl	
+	)
+	
+	for cmd in "${dependencies[@]}"; do
+		if ! command -v "$cmd" >/dev/null 2>&1; then
+			echo "Missing dependency: $cmd" >&2
+			missing=1
+		fi
+	done
+	
+	(( missing )) && exit 1
+}
 
-brightnessctl set "$value"
-echo
+main() {
+	check_dependencies
+	
+	if [[ "$#" == "0" || "$1" == "-h" || "$1" == "--help" ]]; then
+		show_help	
+		exit 0	
+	fi
+
+	value="$1"
+
+	# Brightnessctl syntax
+	if [[ "$1" == *-* ]]; then
+		value="${1//-/}-"
+	fi
+
+	brightnessctl set "$value"
+}
+
+main "$@"
 

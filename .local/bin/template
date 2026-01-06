@@ -9,6 +9,23 @@ show_help() {
 	echo
 }
 
+check_dependencies() {
+	local missing=0
+	
+	local dependencies=(
+		cat	
+	)
+	
+	for cmd in "${dependencies[@]}"; do
+		if ! command -v "$cmd" >/dev/null 2>&1; then
+			echo "Missing dependency: $cmd" >&2
+			missing=1
+		fi
+	done
+	
+	(( missing )) && exit 1
+}
+
 main() {
 	echo "template"
 }
