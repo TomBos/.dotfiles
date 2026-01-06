@@ -1,0 +1,133 @@
+#!/usr/bin/env bash
+
+CUPS="cups.service"
+
+change_cups_status() {
+	sudo systemctl "$1" "$CUPS"
+}
+
+ensure_cups() {
+	systemctl is-active --quiet "$CUPS" || change_cups_status "start"
+}
+
+show_help() {
+	local path="$0"
+	local program_name="${path##*/}"
+	cat <<EOF
+Usage:
+	$program_name add <printer_name> <ip>
+	$program_name print <printer> <file>
+	$program_name status
+EOF
+}
+
+check_dependencies() {
+	local missing=0
+	
+	local dependencies=(
+		systemctl
+		cat
+		cupsctl
+		lp
+		lpstat
+		lpadmin
+	)
+	
+	for cmd in "${deps[@]}"; do
+		if ! command -v "$cmd" >/dev/null 2>&1; then
+			echo "Missing dependency: $cmd" >&2
+			missing=1
+		fi
+	done
+	
+	(( missing )) && exit 1
+}
+
+add_printer() {
+	local name="$1"
+	local ip="$2"
+	if [[ -z "$name" || -z "$ip" ]];then
+		show_help
+		return 1
+	fi
+
+	ensure_cups
+
+	# Add printer to CUPS
+	sudo lpadmin \
+		-p "$name" \
+		-E \
+		-v "ipp://$ip/ipp/print" \
+		-m everywhere
+	
+	# Enable printer in CUPS	
+	sudo cupsenable "$name"
+
+	# Enable printer que in CUPS
+	sudo cupsaccept "$name"
+
+	# The user probably wants to print now -> keeps cups.service active 
+}
+
+show_status() {
+	ensure_cups
+	# List CUPS printers	
+	lpstat -p -d
+
+	# Show print ques
+	lpstat -o
+
+	turn_off_cups
+}
+
+turn_off_cups() {
+	read -rp "Do you want to end printing session (Turn off CUPS) [y/N]: " answer
+	
+	# lowercase the answer	
+	answer=${answer,,}
+
+	if [[ "$answer" == "y" || "$answer" == "yes" ]]; then
+		change_cups_status "stop"
+	fi
+}
+
+print_file() {
+	printer="$1"
+	file="$2"
+	if [[ -z "$printer" || -z "$file" ]];then
+		show_help
+	fi
+
+	if [[ ! -f "$file" ]]; then
+		echo "File '$file' does not exist" >&2
+		return 1
+	fi
+
+	ensure_cups
+
+	# Print file
+	lp -d "$printer" "$file"
+
+	turn_off_cups
+}
+
+main() {
+	check_dependencies
+
+	local cmd="${1:-}"
+
+	case "$cmd" in
+		add)    add_printer "$2" "$3";;
+		print)  print_file "$2" "$3";;
+		status) show_status;;
+		help|-h|--help|"") show_help;;
+		*) 
+			echo "Unknown command: $cmd" >&2
+			show_help
+			return 1
+			;;
+	esac
+}
+
+main "$@"
+
