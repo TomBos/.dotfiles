@@ -36,7 +36,8 @@ function record() {
 }
 
 function screenshot() {
-	grim -g "$(slurp)" "$XDG_PICTURES_DIR/$(date +%Y-%m-%d_%H-%M-%S).jpg"
+	local DIR="$XDG_PICTURES_DIR/$(date +%Y-%m-%d_%H-%M-%S).jpg"
+	grim -g "$(slurp)" - | tee >(wl-copy) > "$DIR"
 }
 
 function mount-as-usb() {
