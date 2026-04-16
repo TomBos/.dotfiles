@@ -24,7 +24,6 @@ flatpak
 less
 slurp
 grim
-steam
 vulkan-radeon
 lib32-vulkan-radeon
 vulkan-tools
@@ -34,3 +33,4 @@ cups
 avahi
 ghostscript
 xdg-desktop-portal-hyprland
+qbittorrent
