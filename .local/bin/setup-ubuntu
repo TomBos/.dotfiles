@@ -11,10 +11,13 @@ extrepo \
 slurp \
 wf-recorder \
 grim \
+unzip \
 wl-clipboard -y
 
 # uninstall
-sudo apt purge snapd foot
+sudo apt purge snapd \
+foot \
+wmenu -y
 
 # web browser
 sudo extrepo enable librewolf && sudo extrepo update librewolf
