@@ -1,28 +1,54 @@
-# locale
-sudo locale-gen en_US.UTF-8
+#!/usr/bin/env bash
 
-# install
-sudo apt install neovim \
-kitty \
-sway \
-stow \
-git \
-extrepo \
-slurp \
-wf-recorder \
-grim \
-unzip \
-wl-clipboard -y
+set -e
 
-# uninstall
-sudo apt purge snapd \
-foot \
-wmenu -y
+function echo {
+	command echo -e "\e[32m$1\e[0m"
+}
 
-# web browser
-sudo extrepo enable librewolf && sudo extrepo update librewolf
-sudo apt update && sudo apt install librewolf -y
+if [[ $EUID -ne 0 ]]; then
+	echo "Not running as root. Re-launching with sudo..."
+	exec sudo "$0" "$@"
+fi
 
-# clean up
-sudo apt autoremove
-sudo rm -rf /var/cache/snap
+echo "--- Generating locales ---"
+if ! locale -a | grep -iq 'en_US.utf8'; then
+	locale-gen en_US.UTF-8
+	update-locale LANG=en_US.UTF-8
+fi
+
+echo "--- Installing dependencies ---"
+apt update && apt install -y \
+	neovim \
+	kitty \
+	sway \
+	stow \
+	git \
+	extrepo \
+	slurp \
+	wf-recorder \
+	grim \
+	ripgrep \
+	unzip \
+	wl-clipboard
+
+echo "--- Removing bloat ---"
+for pkg in snapd foot wmenu; do
+	if dpkg -l | grep -q "^ii  $pkg "; then
+		echo "Purging $pkg..."
+		apt purge -y "$pkg"
+	fi
+done
+
+echo "--- Enabling LibreWolf ---"
+extrepo enable librewolf
+apt update
+apt install -y librewolf
+
+echo "--- Finalizing cleanup ---"
+apt autoremove -y
+if [ -d "/var/cache/snap" ]; then
+	rm -rf /var/cache/snap
+fi
+
+echo "System setup complete."
