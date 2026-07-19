@@ -1,0 +1,25 @@
+# locale
+sudo locale-gen en_US.UTF-8
+
+# install
+sudo apt install neovim \
+kitty \
+sway \
+stow \
+git \
+extrepo \
+slurp \
+wf-recorder \
+grim \
+wl-clipboard -y
+
+# uninstall
+sudo apt purge snapd foot
+
+# web browser
+sudo extrepo enable librewolf && sudo extrepo update librewolf
+sudo apt update && sudo apt install librewolf -y
+
+# clean up
+sudo apt autoremove
+sudo rm -rf /var/cache/snap
